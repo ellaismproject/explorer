@@ -17,7 +17,7 @@
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">Community</a>
                         <div class="navbar-dropdown">
-                            <a href="https://ellaism.org/" class="navbar-item">Ellaism Website</a>
+                            <a href="https://ellaism.io/" class="navbar-item">Ellaism Website</a>
                             <a href="https://github.com/ellaism" rel="nofollow" class="navbar-item">Ellaism GitHub</a>
                             <hr class="dropdown-divider">
                             <a href="https://discordapp.com/invite/gz9tURY" rel="nofollow"
