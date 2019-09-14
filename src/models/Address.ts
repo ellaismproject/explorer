@@ -1,7 +1,7 @@
 export default class Address {
     public hash: string | null = null;
-    public balance: number = 0;
+    public balance: number | null = null;
     public blocksMined: number | null = null;
-    public transactionCount: number = 0;
+    public transactionCount: number | null = null;
     public cacheDate: string | null = null;
 }
