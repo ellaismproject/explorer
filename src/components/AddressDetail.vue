@@ -6,11 +6,11 @@
                 <th width="15%">Balance</th>
                 <td>{{`${syncedAddress.balance} ELLA`}}</td>
             </tr>
-            <tr>
+            <tr v-if="syncedAddress.blocksMined !== null">
                 <th width="15%">Blocks Mined</th>
                 <td>{{syncedAddress.blocksMined}}</td>
             </tr>
-            <tr>
+            <tr v-if="syncedAddress.transactionCount !== null">
                 <th width="15%">Transaction Count</th>
                 <td>{{syncedAddress.transactionCount}}</td>
             </tr>
