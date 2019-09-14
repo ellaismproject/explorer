@@ -14,6 +14,11 @@
                 <th width="15%">Transaction Count</th>
                 <td>{{syncedAddress.transactionCount}}</td>
             </tr>
+            <tr >
+                <th width="15%">Last Updated</th>
+                <td>{{moment(syncedAddress.cacheDate, 'YYYY-MM-DDTHH:mm:ss.SSSSSSSZZ').fromNow()}}
+                    {{`(${moment(syncedAddress.cacheDate, 'YYYY-MM-DDTHH:mm:ss.SSSSSSSZZ').format('llll')})`}}</td>
+            </tr>
             </tbody>
         </table>
     </div>
