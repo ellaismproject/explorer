@@ -14,4 +14,8 @@ module.exports = {
             }),
         ],
     },
+    pwa: {
+        name: 'Ellaism',
+        themeColor: '#363636',
+    },
 };
