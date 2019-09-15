@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HomePage from './views/HomePage.vue';
-import BlockPage from './views/BlockPage.vue';
-import AddressPage from './views/AddressPage.vue';
-import TransactionPage from './views/TransactionPage.vue';
-import BlockHeightPage from './views/BlockHeightPage.vue';
+import HomePage from '@/views/HomePage.vue';
+import BlockPage from '@/views/BlockPage.vue';
+import AddressPage from '@/views/AddressPage.vue';
+import TransactionPage from '@/views/TransactionPage.vue';
+import BlockHeightPage from '@/views/BlockHeightPage.vue';
+import RichestPage from '@/views/RichestPage.vue';
 
 Vue.use(Router);
 
@@ -36,6 +37,11 @@ export default new Router({
             path: '/transaction/:hash',
             name: 'transaction',
             component: TransactionPage,
+        },
+        {
+            path: '/richest',
+            name: 'richest',
+            component: RichestPage,
         },
     ],
 });

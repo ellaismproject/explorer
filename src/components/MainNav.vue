@@ -15,6 +15,14 @@
             <div id="navbarMainNav" class="navbar-menu">
                 <div class="navbar-start">
                     <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">Stats</a>
+                        <div class="navbar-dropdown">
+                            <router-link :to="{ name: 'richest' }" class="navbar-item">
+                                Rich List
+                            </router-link>
+                        </div>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">Community</a>
                         <div class="navbar-dropdown">
                             <a href="https://ellaism.io/" class="navbar-item">Ellaism Website</a>

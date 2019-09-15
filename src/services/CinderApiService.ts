@@ -5,6 +5,7 @@ import Transaction from '@/models/Transaction';
 import SearchResult from '@/models/SearchResult';
 import PagedResult from '@/paging/PagedResult';
 import {SortType} from '@/models/SortType';
+import Richest from '@/models/Richest';
 
 interface ICallTrackApiService {
     getAddressByHash(hash: string): Promise<Address>;
@@ -101,6 +102,13 @@ export default class CallTrackApiService implements ICallTrackApiService {
 
     public async search(query: string): Promise<SearchResult> {
         const url: string = `${this.baseUrl}/v1/search?query=${query}`;
+        const response = await this.client.get(url);
+
+        return response.data;
+    }
+
+    public async getRichest(page: number | null, size: number | null): Promise<PagedResult<Richest>> {
+        const url: string = `${this.baseUrl}/v1/stats/richest?page=${page}&size=${size}`;
         const response = await this.client.get(url);
 
         return response.data;
