@@ -16,8 +16,8 @@
             </tr>
             <tr >
                 <th width="15%">Last Updated</th>
-                <td>{{moment(syncedAddress.cacheDate, 'YYYY-MM-DDTHH:mm:ss.SSSSSSSZZ').fromNow()}}
-                    {{`(${moment(syncedAddress.cacheDate, 'YYYY-MM-DDTHH:mm:ss.SSSSSSSZZ').format('llll')})`}}</td>
+                <td>{{moment.unix(syncedAddress.timestamp).fromNow()}}
+                    {{`(${moment.unix(syncedAddress.timestamp).format('llll')})`}}</td>
             </tr>
             </tbody>
         </table>

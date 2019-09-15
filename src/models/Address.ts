@@ -3,5 +3,5 @@ export default class Address {
     public balance: number | null = null;
     public blocksMined: number | null = null;
     public transactionCount: number | null = null;
-    public cacheDate: string | null = null;
+    public timestamp: number | null = null;
 }
