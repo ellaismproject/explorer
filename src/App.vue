@@ -13,7 +13,10 @@
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>&copy; {{year}} Ellaism Community Developers.<br/>
-                    <small class="has-text-grey">{{`Cinder v${version}`}}</small></p>
+                    <small class="has-text-grey">{{`Cinder v${version}`}}<br/>
+                        <a href="https://github.com/majordutch/Cinder" rel="nofollow">
+                            <b-icon pack="fab" icon="fa-github"/>
+                        </a></small></p>
             </div>
         </footer>
     </div>
@@ -63,5 +66,7 @@ export default class App extends Vue {
         max-width: 420px;
     }
 
-    .is-no-wrap { white-space: nowrap; }
+    .is-no-wrap {
+        white-space: nowrap;
+    }
 </style>
