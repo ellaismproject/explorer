@@ -50,11 +50,8 @@ export default class AddressPage extends Vue {
     private async getAddressAndTransactions(hash: string): Promise<void> {
         store.commit('toggleLoader', true);
         await this.getAddress(hash);
+        await this.getTransactions(hash);
         store.commit('toggleLoader', false);
-
-        // if (this.address != null && this.address.transactionCount > 0) {
-            await this.getTransactions(hash);
-        // }
     }
 
     private async getAddress(hash: string): Promise<void> {
@@ -69,7 +66,7 @@ export default class AddressPage extends Vue {
 
     private async getTransactions(hash: string): Promise<void> {
         try {
-            const data = await this.api.getTransactionsByAddressHash(hash, 1, 20, SortType.Descending);
+            const data = await this.api.getTransactionsByAddressHash(hash, 1, 20, true, SortType.Descending);
             this.transactions = data.items;
         }  catch (e) {
         }
