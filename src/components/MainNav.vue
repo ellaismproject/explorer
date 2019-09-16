@@ -1,52 +1,45 @@
 <template>
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <router-link :to="{ name: 'home'}" class="navbar-item">
-                    <img src="../assets/logo.png" alt="Ellaism"/>
-                </router-link>
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                   data-target="navbarMainNav">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <div id="navbarMainNav" class="navbar-menu">
-                <div class="navbar-start">
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">Stats</a>
-                        <div class="navbar-dropdown">
-                            <router-link :to="{ name: 'richest' }" class="navbar-item">
-                                Rich List
-                            </router-link>
-                        </div>
-                    </div>
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">Community</a>
-                        <div class="navbar-dropdown">
-                            <a href="https://ellaism.io/" class="navbar-item">Ellaism Website</a>
-                            <a href="https://github.com/ellaism" rel="nofollow" class="navbar-item">Ellaism GitHub</a>
-                            <hr class="dropdown-divider">
-                            <a href="https://discordapp.com/invite/gz9tURY" rel="nofollow"
-                               class="navbar-item">Discord</a>
-                            <a href="https://t.me/ellaismcoin" rel="nofollow" class="navbar-item">Telegram</a>
-                            <a href="https://twitter.com/EllaismCore" rel="nofollow" class="navbar-item">Twitter</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <MainNavSearch/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <b-navbar type="is-dark" fixed-top wrapper-class="container">
+        <template slot="brand">
+            <b-navbar-item tag="router-link" :to="{ name: 'home' }">
+                <img src="../assets/logo.png" alt="Ellaism"/>
+            </b-navbar-item>
+        </template>
+        <template slot="start">
+            <b-navbar-dropdown label="Stats" hoverable>
+                <b-navbar-item tag="router-link" :to="{ name: 'richest' }">
+                    Rich List
+                </b-navbar-item>
+            </b-navbar-dropdown>
+            <b-navbar-dropdown label="Community" hoverable>
+                <b-navbar-item href="https://ellaism.io">
+                    Ellaism Website
+                </b-navbar-item>
+                <b-navbar-item href="https://github.com/ellaism" rel="nofollow">
+                    Ellaism GitHub
+                </b-navbar-item>
+                <hr class="dropdown-divider">
+                <b-navbar-item href="https://discordapp.com/invite/gz9tURY" rel="nofollow">
+                    Discord
+                </b-navbar-item>
+                <b-navbar-item href="https://t.me/ellaismcoin" rel="nofollow">
+                    Telegram
+                </b-navbar-item>
+                <b-navbar-item href="https://twitter.com/EllaismCore" rel="nofollow">
+                    Twitter
+                </b-navbar-item>
+            </b-navbar-dropdown>
+        </template>
+        <template slot="end">
+            <b-navbar-item tag="div">
+                <MainNavSearch/>
+            </b-navbar-item>
+        </template>
+    </b-navbar>
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Vue} from 'vue-property-decorator';
 import MainNavSearch from '@/components/MainNavSearch.vue';
 
 @Component({
