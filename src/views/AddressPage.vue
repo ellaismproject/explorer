@@ -66,7 +66,7 @@ export default class AddressPage extends Vue {
 
     private async getTransactions(hash: string): Promise<void> {
         try {
-            const data = await this.api.getTransactionsByAddressHash(hash, 1, 20, true, SortType.Descending);
+            const data = await this.api.getRecentTransactionsByAddressHash(hash, 1, 20, SortType.Descending);
             this.transactions = data.items;
         }  catch (e) {
         }

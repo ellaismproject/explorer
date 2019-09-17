@@ -22,8 +22,11 @@ interface ICallTrackApiService {
 
     getTransactionsByBlockHash(hash: string): Promise<Transaction[]>;
 
-    getTransactionsByAddressHash(hash: string, page: number | null, size: number | null, limited: boolean,
-                                 sort: SortType): Promise<PagedResult<Transaction>>;
+    getTransactionsByAddressHash(hash: string, page: number | null, size: number | null, sort: SortType):
+        Promise<PagedResult<Transaction>>;
+
+    getRecentTransactionsByAddressHash(hash: string, page: number | null, size: number | null, sort: SortType):
+        Promise<PagedResult<Transaction>>;
 
     search(query: string): Promise<SearchResult>;
 }
@@ -93,8 +96,16 @@ export default class CallTrackApiService implements ICallTrackApiService {
     }
 
     public async getTransactionsByAddressHash(hash: string, page: number | null, size: number | null,
-                                              limited: boolean = false, sort: SortType = SortType.Ascending): Promise<PagedResult<Transaction>> {
-        const url: string = `${this.baseUrl}/v1/transaction/address/${hash}?page=${page}&size=${size}&limited=${limited}&sort=${sort}`;
+                                              sort: SortType = SortType.Ascending): Promise<PagedResult<Transaction>> {
+        const url: string = `${this.baseUrl}/v1/transaction/address/${hash}?page=${page}&size=${size}&sort=${sort}`;
+        const response = await this.client.get(url);
+
+        return response.data;
+    }
+
+    public async getRecentTransactionsByAddressHash(hash: string, page: number | null, size: number | null,
+                                                    sort: SortType = SortType.Ascending): Promise<PagedResult<Transaction>> {
+        const url: string = `${this.baseUrl}/v1/transaction/address/${hash}/recent?page=${page}&size=${size}&sort=${sort}`;
         const response = await this.client.get(url);
 
         return response.data;
