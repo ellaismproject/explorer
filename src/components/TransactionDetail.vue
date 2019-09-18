@@ -4,7 +4,7 @@
         <tr>
             <th width="15%">Block Height</th>
             <td>
-                <router-link :to="{ name: 'blockHeight', params: { number: syncedTransaction.blockNumber }}">{{ syncedTransaction.blockNumber }}</router-link>
+                <router-link :to="{ name: 'blockHeight', params: { blockNumber: syncedTransaction.blockNumber }}">{{ syncedTransaction.blockNumber }}</router-link>
             </td>
         </tr>
         <tr>
