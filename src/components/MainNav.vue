@@ -6,6 +6,9 @@
             </b-navbar-item>
         </template>
         <template slot="start">
+            <b-navbar-item tag="router-link" :to="{ name: 'home' }">
+                Home
+            </b-navbar-item>
             <b-navbar-dropdown label="Stats" hoverable>
                 <b-navbar-item tag="router-link" :to="{ name: 'richest' }">
                     Rich List
@@ -21,6 +24,9 @@
                 <hr class="dropdown-divider">
                 <b-navbar-item href="https://discordapp.com/invite/gz9tURY" rel="nofollow">
                     Discord
+                </b-navbar-item>
+                <b-navbar-item href="https://www.reddit.com/r/ellaism/" rel="nofollow">
+                    Reddit
                 </b-navbar-item>
                 <b-navbar-item href="https://t.me/ellaismcoin" rel="nofollow">
                     Telegram
