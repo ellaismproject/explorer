@@ -25,8 +25,7 @@ interface ICallTrackApiService {
     getTransactionsByAddressHash(hash: string, page: number | null, size: number | null, sort: SortType):
         Promise<PagedResult<Transaction>>;
 
-    getRecentTransactionsByAddressHash(hash: string, page: number | null, size: number | null, sort: SortType):
-        Promise<PagedResult<Transaction>>;
+    getRecentTransactionsByAddressHash(hash: string, size: number | null): Promise<Transaction[]>;
 
     search(query: string): Promise<SearchResult>;
 }
@@ -103,9 +102,9 @@ export default class CallTrackApiService implements ICallTrackApiService {
         return response.data;
     }
 
-    public async getRecentTransactionsByAddressHash(hash: string, page: number | null, size: number | null,
-                                                    sort: SortType = SortType.Ascending): Promise<PagedResult<Transaction>> {
-        const url: string = `${this.baseUrl}/v1/transaction/address/${hash}/recent?page=${page}&size=${size}&sort=${sort}`;
+    public async getRecentTransactionsByAddressHash(hash: string, size: number | null):
+        Promise<Transaction[]> {
+        const url: string = `${this.baseUrl}/v1/transaction/address/${hash}/recent?size=${size}`;
         const response = await this.client.get(url);
 
         return response.data;

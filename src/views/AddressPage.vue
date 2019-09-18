@@ -19,7 +19,6 @@ import Address from '@/models/Address';
 import store from '@/Store';
 import {mapState} from 'vuex';
 import Transaction from '@/models/Transaction';
-import {SortType} from '@/models/SortType';
 import TransactionSummary from '@/components/TransactionSummary.vue';
 
 @Component({
@@ -66,8 +65,7 @@ export default class AddressPage extends Vue {
 
     private async getTransactions(hash: string): Promise<void> {
         try {
-            const data = await this.api.getRecentTransactionsByAddressHash(hash, 1, 20, SortType.Descending);
-            this.transactions = data.items;
+            this.transactions = await this.api.getRecentTransactionsByAddressHash(hash, 20);
         }  catch (e) {
         }
     }
