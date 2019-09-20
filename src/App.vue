@@ -12,11 +12,9 @@
 
         <footer class="footer">
             <div class="content has-text-centered">
-                <p>&copy; {{year}} Ellaism Community Developers.<br/>
-                    <small class="has-text-grey">{{`Cinder v${version}`}}<br/>
-                        <a href="https://github.com/majordutch/Cinder" rel="nofollow">
-                            <b-icon pack="fab" icon="fa-github"/>
-                        </a></small></p>
+                <p>&copy; {{year}} Ellaism</p>
+                <p class="has-text-grey" style="max-width: 560px; margin: 0 auto;">Ellaism is not funded nor controlled
+                    by any entity, it is a community driven EVM-based network with WASM enabled.</p>
             </div>
         </footer>
     </div>

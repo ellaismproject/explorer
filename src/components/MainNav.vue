@@ -6,15 +6,15 @@
             </b-navbar-item>
         </template>
         <template slot="start">
-            <b-navbar-item tag="router-link" :to="{ name: 'home' }">
-                Home
-            </b-navbar-item>
-            <b-navbar-dropdown label="Stats" hoverable>
+            <b-navbar-dropdown label="Blockchain Stats">
                 <b-navbar-item tag="router-link" :to="{ name: 'richest' }">
                     Rich List
                 </b-navbar-item>
             </b-navbar-dropdown>
-            <b-navbar-dropdown label="Community" hoverable>
+            <b-navbar-dropdown label="Community">
+                <b-navbar-item tag="div">
+                    <strong>Official</strong>
+                </b-navbar-item>
                 <b-navbar-item href="https://ellaism.io">
                     Ellaism Website
                 </b-navbar-item>
@@ -22,6 +22,9 @@
                     Ellaism GitHub
                 </b-navbar-item>
                 <hr class="dropdown-divider">
+                <b-navbar-item tag="div">
+                    <strong>Community</strong>
+                </b-navbar-item>
                 <b-navbar-item href="https://discordapp.com/invite/gz9tURY" rel="nofollow">
                     Discord
                 </b-navbar-item>
