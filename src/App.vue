@@ -49,6 +49,10 @@ export default class App extends Vue {
 </script>
 
 <style>
+    body {
+        cursor: default;
+    }
+
     .text-truncate {
         overflow: hidden;
         text-overflow: ellipsis;

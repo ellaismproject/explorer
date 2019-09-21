@@ -6,6 +6,9 @@
             </b-navbar-item>
         </template>
         <template slot="start">
+            <b-navbar-item tag="router-link" :to="{ name: 'home' }">
+                Latest Blocks
+            </b-navbar-item>
             <b-navbar-dropdown label="Blockchain Stats">
                 <b-navbar-item tag="router-link" :to="{ name: 'richest' }">
                     Rich List
@@ -59,3 +62,11 @@ import MainNavSearch from '@/components/MainNavSearch.vue';
 export default class MainNav extends Vue {
 }
 </script>
+
+<style scoped>
+    .navbar.is-dark .navbar-brand > a.navbar-item:focus,
+    .navbar.is-dark .navbar-brand > a.navbar-item:hover,
+    .navbar.is-dark .navbar-brand > a.navbar-item.is-active {
+        background-color: transparent !important;
+    }
+</style>
