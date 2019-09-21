@@ -12,9 +12,9 @@
 
         <footer class="footer">
             <div class="content has-text-centered">
-                <p>&copy; {{year}} Ellaism</p>
+                <p>&copy; {{appYear}} Ellaism</p>
                 <p class="has-text-grey" style="max-width: 560px; margin: 0 auto;">Ellaism is not funded nor controlled
-                    by any entity, it is a community driven EVM-based network with WASM enabled.</p>
+                    by any entity, it is a community driven EVM-based network with Wasm enabled.</p>
             </div>
         </footer>
     </div>
@@ -38,12 +38,11 @@ import {MetaInfo} from 'vue-meta';
     },
 })
 export default class App extends Vue {
-
-    get version(): string {
+    get appVersion(): string {
         return VersionInfo.Version;
     }
 
-    get year(): string {
+    get appYear(): string {
         return new Date().getFullYear().toString();
     }
 }
