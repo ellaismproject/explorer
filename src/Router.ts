@@ -1,11 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import HomePage from '@/views/HomePage.vue';
-import BlockPage from '@/views/BlockPage.vue';
-import AddressPage from '@/views/AddressPage.vue';
-import TransactionPage from '@/views/TransactionPage.vue';
-import BlockHeightPage from '@/views/BlockHeightPage.vue';
-import RichestPage from '@/views/RichestPage.vue';
 
 Vue.use(Router);
 
@@ -21,27 +16,27 @@ export default new Router({
         {
             path: '/block/:hash',
             name: 'block',
-            component: BlockPage,
+            component: () => import(/* webpackChunkName: "blockpage" */ '@/views/BlockPage.vue'),
         },
         {
             path: '/block-height/:blockNumber',
             name: 'blockHeight',
-            component: BlockHeightPage,
+            component: () => import(/* webpackChunkName: "blockheightpage" */ '@/views/BlockHeightPage.vue'),
         },
         {
             path: '/address/:hash',
             name: 'address',
-            component: AddressPage,
+            component: () => import(/* webpackChunkName: "addresspage" */ '@/views/AddressPage.vue'),
         },
         {
             path: '/transaction/:hash',
             name: 'transaction',
-            component: TransactionPage,
+            component: () => import(/* webpackChunkName: "transactionpage" */ '@/views/TransactionPage.vue'),
         },
         {
             path: '/richest',
             name: 'richest',
-            component: RichestPage,
+            component: () => import(/* webpackChunkName: "richestpage" */ '@/views/RichestPage.vue'),
         },
     ],
 });
