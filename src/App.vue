@@ -24,10 +24,17 @@
 import {Component, Vue} from 'vue-property-decorator';
 import MainNav from '@/components/MainNav.vue';
 import VersionInfo from './VersionInfo';
+import {MetaInfo} from 'vue-meta';
 
 @Component({
     components: {
         MainNav,
+    },
+    metaInfo(): MetaInfo {
+        return {
+            title: 'Blockchain Explorer',
+            titleTemplate: '%s | Search the Ellaism Blockchain',
+        };
     },
 })
 export default class App extends Vue {

@@ -19,8 +19,9 @@ import CinderApiService from '@/services/CinderApiService';
 import Transaction from '@/models/Transaction';
 import store from '@/Store';
 import {mapState} from 'vuex';
+import {MetaInfo} from 'vue-meta';
 
-@Component({
+@Component<BlockPage>({
     components: {
         BlockDetail,
         TransactionSummary,
@@ -29,6 +30,12 @@ import {mapState} from 'vuex';
     computed: mapState([
         'isLoading',
     ]),
+    metaInfo(): MetaInfo {
+        return {
+            title: this.block !== null ? `Ellaism Block #${this.block.blockNumber}` : undefined,
+            titleTemplate: undefined,
+        };
+    },
 })
 export default class BlockPage extends Vue {
     public isLoading!: boolean;

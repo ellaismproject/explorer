@@ -17,6 +17,7 @@ import CinderApiService from '@/services/CinderApiService';
 import store from '@/Store';
 import {mapState} from 'vuex';
 import Richest from '@/models/Richest';
+import {MetaInfo} from 'vue-meta';
 
 @Component({
     components: {
@@ -26,6 +27,12 @@ import Richest from '@/models/Richest';
     computed: mapState([
         'isLoading',
     ]),
+    metaInfo(): MetaInfo {
+        return {
+            title: 'Ellaism Rich List',
+            titleTemplate: 'See the Richest Ellaism Addresses',
+        };
+    },
 })
 export default class RichestPage extends Vue {
     public isLoading!: boolean;

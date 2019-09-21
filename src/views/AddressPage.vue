@@ -20,8 +20,9 @@ import store from '@/Store';
 import {mapState} from 'vuex';
 import Transaction from '@/models/Transaction';
 import TransactionSummary from '@/components/TransactionSummary.vue';
+import { MetaInfo } from 'vue-meta';
 
-@Component({
+@Component<AddressPage>({
     components: {
         TransactionSummary,
         AddressDetail,
@@ -30,6 +31,12 @@ import TransactionSummary from '@/components/TransactionSummary.vue';
     computed: mapState([
         'isLoading',
     ]),
+    metaInfo(): MetaInfo {
+        return {
+            title: this.address !== null ? `Ellaism Address ${this.address.hash}` : undefined,
+            titleTemplate: undefined,
+        };
+    },
 })
 export default class AddressPage extends Vue {
     public isLoading!: boolean;

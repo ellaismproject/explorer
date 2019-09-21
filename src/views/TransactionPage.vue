@@ -5,7 +5,7 @@ import {SortType} from "@/models/SortType";
     </div>
     <div v-else-if="transaction !== null" class="transaction-page">
         <h1 class="title is-4 is-spaced">Transaction <small class="has-text-grey">{{transaction.hash}}</small></h1>
-        <TransactionDetail :transaction="transaction" />
+        <TransactionDetail :transaction="transaction"/>
     </div>
 </template>
 
@@ -17,8 +17,9 @@ import CinderApiService from '@/services/CinderApiService';
 import store from '@/Store';
 import {mapState} from 'vuex';
 import Transaction from '@/models/Transaction';
+import {MetaInfo} from 'vue-meta';
 
-@Component({
+@Component<TransactionPage>({
     components: {
         PageLoader,
         TransactionDetail,
@@ -26,6 +27,12 @@ import Transaction from '@/models/Transaction';
     computed: mapState([
         'isLoading',
     ]),
+    metaInfo(): MetaInfo {
+        return {
+            title: this.transaction !== null ? `Ellaism Transaction ${this.transaction.hash}` : undefined,
+            titleTemplate: undefined,
+        };
+    },
 })
 export default class TransactionPage extends Vue {
     public isLoading!: boolean;

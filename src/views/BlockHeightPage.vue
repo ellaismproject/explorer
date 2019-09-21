@@ -3,8 +3,9 @@
         <PageLoader/>
     </div>
     <div v-else-if="block !== null" class="block-page">
-        <h1 class="title is-4 is-spaced">Block Height <small class="has-text-grey">{{`#${block.blockNumber}`}}</small></h1>
-        <BlockDetail :block="block" />
+        <h1 class="title is-4 is-spaced">Block Height <small class="has-text-grey">{{`#${block.blockNumber}`}}</small>
+        </h1>
+        <BlockDetail :block="block"/>
     </div>
 </template>
 
@@ -14,11 +15,11 @@ import BlockDetail from '@/components/BlockDetail.vue';
 import PageLoader from '@/components/PageLoader.vue';
 import Block from '@/models/Block';
 import CinderApiService from '@/services/CinderApiService';
-import Transaction from '@/models/Transaction';
 import store from '@/Store';
 import {mapState} from 'vuex';
+import {MetaInfo} from 'vue-meta';
 
-@Component({
+@Component<BlockPage>({
     components: {
         BlockDetail,
         PageLoader,
@@ -26,6 +27,12 @@ import {mapState} from 'vuex';
     computed: mapState([
         'isLoading',
     ]),
+    metaInfo(): MetaInfo {
+        return {
+            title: this.block !== null ? `Ellaism Block #${this.block.blockNumber}` : undefined,
+            titleTemplate: undefined,
+        };
+    },
 })
 export default class BlockPage extends Vue {
     public isLoading!: boolean;
