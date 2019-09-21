@@ -1,6 +1,6 @@
 <template>
-    <div v-if="addresses !== null" class="table-container">
-        <b-table class="is-striped is-hoverable is-fullwidth" :data="addresses">
+    <div v-if="syncedAddresses !== null" class="table-container">
+        <b-table class="is-striped is-hoverable is-fullwidth" :data="syncedAddresses">
             <template slot-scope="props">
                 <b-table-column field="hash" label="Address">
                     <router-link :to="{ name: 'address', params: { hash: props.row.hash }}">{{ props.row.hash }}</router-link>
@@ -21,12 +21,12 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, Prop} from 'vue-property-decorator';
+import {Component, Vue, PropSync} from 'vue-property-decorator';
 import Richest from '@/models/Richest';
 
-@Component
+@Component({})
 export default class RichestList extends Vue {
-    @Prop()
-    public readonly addresses?: Richest[];
+    @PropSync('addresses')
+    public readonly syncedAddresses?: Richest[];
 }
 </script>

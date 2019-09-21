@@ -15,7 +15,7 @@ import CinderApiService from '@/services/CinderApiService';
 import {SearchResultType} from '@/models/SearchResultType';
 import SearchResult from '@/models/SearchResult';
 
-@Component
+@Component({})
 export default class MainNavSearch extends Vue {
     public isLoading: boolean = false;
     public isError: boolean = false;

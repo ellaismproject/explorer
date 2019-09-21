@@ -28,9 +28,9 @@
 import {Component, PropSync, Vue} from 'vue-property-decorator';
 import Address from '@/models/Address';
 
-@Component
+@Component({})
 export default class AddressDetail extends Vue {
-    @PropSync('address', { type: Object as () => Address })
+    @PropSync('address')
     public readonly syncedAddress!: Address;
 }
 </script>

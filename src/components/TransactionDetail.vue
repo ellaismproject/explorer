@@ -63,9 +63,9 @@
 import {Component, PropSync, Vue} from 'vue-property-decorator';
 import Transaction from '@/models/Transaction';
 
-@Component
+@Component({})
 export default class TransactionDetail extends Vue {
-    @PropSync('transaction', { type: Object as () => Transaction })
+    @PropSync('transaction')
     public readonly syncedTransaction!: Transaction;
 }
 </script>

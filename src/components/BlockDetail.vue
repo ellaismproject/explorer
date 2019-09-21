@@ -71,9 +71,9 @@
 import {Component, PropSync, Vue} from 'vue-property-decorator';
 import Block from '@/models/Block';
 
-@Component
+@Component({})
 export default class BlockDetail extends Vue {
-    @PropSync('block', { type: Object as () => Block })
+    @PropSync('block')
     public readonly syncedBlock!: Block;
 }
 </script>

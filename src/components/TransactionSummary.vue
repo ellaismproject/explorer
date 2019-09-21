@@ -1,8 +1,8 @@
 <template>
-    <div v-if="transactions !== null && transactions.length > 0" class="transaction-summary">
+    <div v-if="syncedTransactions !== null && syncedTransactions.length > 0" class="transaction-summary">
         <h2 class="title is-4 is-spaced">Transactions</h2>
         <div class="table-container">
-            <b-table class="is-striped is-hoverable is-fullwidth" :data="transactions">
+            <b-table class="is-striped is-hoverable is-fullwidth" :data="syncedTransactions">
                 <template slot-scope="props">
                     <b-table-column field="hash" label="Transaction Hash">
                         <router-link :to="{ name: 'transaction', params: { hash: props.row.hash }}"
@@ -29,12 +29,12 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, PropSync, Vue} from 'vue-property-decorator';
 import Transaction from '@/models/Transaction';
 
-@Component
+@Component({})
 export default class TransactionSummary extends Vue {
-    @Prop({type: Object as () => Transaction})
-    public readonly transactions?: Transaction[];
+    @PropSync('transactions')
+    public readonly syncedTransactions?: Transaction[];
 }
 </script>

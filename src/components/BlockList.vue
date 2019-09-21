@@ -1,6 +1,6 @@
 <template>
-    <div v-if="blocks !== null" class="table-container">
-        <b-table class="is-striped is-hoverable is-fullwidth" :data="blocks">
+    <div v-if="syncedBlocks !== null" class="table-container">
+        <b-table class="is-striped is-hoverable is-fullwidth" :data="syncedBlocks">
             <template slot-scope="props">
                 <b-table-column field="blockNumber" label="Height">
                     <router-link :to="{ name: 'block', params: { hash: props.row.hash }}">{{ props.row.blockNumber }}</router-link>
@@ -34,12 +34,12 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, Prop} from 'vue-property-decorator';
+import {Component, Vue, PropSync} from 'vue-property-decorator';
 import Block from '@/models/Block';
 
-@Component
+@Component({})
 export default class BlockList extends Vue {
-    @Prop()
-    public readonly blocks?: Block[];
+    @PropSync('blocks')
+    public readonly syncedBlocks?: Block[];
 }
 </script>
