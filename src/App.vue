@@ -12,9 +12,8 @@
 
         <footer class="footer">
             <div class="content has-text-centered">
-                <p>&copy; {{appYear}} Ellaism</p>
-                <p class="has-text-grey" style="max-width: 560px; margin: 0 auto;">Ellaism is not funded nor controlled
-                    by any entity, it is a community driven EVM-based network with Wasm enabled.</p>
+                <p>&copy; {{ `${appYear} ${$t('ellaism')}` }}</p>
+                <p class="has-text-grey" style="max-width: 560px; margin: 0 auto;">{{ $t('footer_message') }}</p>
             </div>
         </footer>
     </div>

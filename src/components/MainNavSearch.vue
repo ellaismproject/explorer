@@ -1,10 +1,12 @@
 <template>
     <div class="field has-addons">
         <div class="control">
-            <input v-model="query" class="input" type="text" placeholder="Lookup blocks, transactions, hash..."/>
+            <input v-model="query" class="input" type="text" v-bind:placeholder="$t('navigation.search.placeholder')"/>
         </div>
         <div class="control">
-            <button class="button is-light" :class="{ 'is-loading': isLoading }" v-on:click="search">Search</button>
+            <button class="button is-light" :class="{ 'is-loading': isLoading }" v-on:click="search">
+                {{ $t('navigation.search.button') }}
+            </button>
         </div>
     </div>
 </template>

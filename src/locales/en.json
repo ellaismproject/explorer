@@ -1,0 +1,27 @@
+{
+  "ellaism": "Ellaism",
+  "footer_message": "@:ellaism is not funded nor controlled by any entity, it is an open-source platform for decentralized applications.",
+  "navigation": {
+    "ellaism": "@:ellaism",
+    "latest_blocks": "Latest Blocks",
+    "stats": "Blockchain Stats",
+    "stats_subnav": {
+      "richest": "Rich List"
+    },
+    "community": "Community",
+    "community_subnav": {
+      "official": "Official",
+      "website": "@:ellaism Website",
+      "github": "@:ellaism GitHub",
+      "community": "Community",
+      "discord": "Discord",
+      "reddit": "Reddit",
+      "telegram": "Telegram",
+      "twitter": "Twitter"
+    },
+    "search": {
+      "placeholder": "Lookup blocks, transactions, hash...",
+      "button": "Search"
+    }
+  }
+}
