@@ -4,7 +4,9 @@ import {SortType} from "@/models/SortType";
         <PageLoader/>
     </div>
     <div v-else-if="address !== null" class="address-page">
-        <h1 class="title is-4 is-spaced">Address <small class="has-text-grey">{{address.hash}}</small></h1>
+        <i18n path="page.address.title" tag="h1" class="title is-4 is-spaced">
+            <small slot="hash" class="has-text-grey">{{address.hash}}</small>
+        </i18n>
         <AddressDetail :address="address"/>
         <TransactionSummary :transactions="transactions"/>
     </div>
@@ -33,7 +35,7 @@ import { MetaInfo } from 'vue-meta';
     ]),
     metaInfo(): MetaInfo {
         return {
-            title: this.address !== null ? `Ellaism Address ${this.address.hash}` : undefined,
+            title: this.address !== null ? `${this.$t('page.address.meta_title')} ${this.address.hash}` : undefined,
             titleTemplate: undefined,
         };
     },

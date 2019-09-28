@@ -3,7 +3,9 @@
         <PageLoader/>
     </div>
     <div v-else-if="block !== null" class="block-page">
-        <h1 class="title is-4 is-spaced">Block <small class="has-text-grey">{{`#${block.blockNumber}`}}</small></h1>
+        <i18n path="page.block.title" tag="h1" class="title is-4 is-spaced">
+            <small slot="blockNumber" class="has-text-grey">{{`#${block.blockNumber}`}}</small>
+        </i18n>
         <BlockDetail :block="block" />
         <TransactionSummary :transactions="transactions" />
     </div>
@@ -32,7 +34,7 @@ import {MetaInfo} from 'vue-meta';
     ]),
     metaInfo(): MetaInfo {
         return {
-            title: this.block !== null ? `Ellaism Block #${this.block.blockNumber}` : undefined,
+            title: this.block !== null ? `${this.$t('page.block.meta_title')} #${this.block.blockNumber}` : undefined,
             titleTemplate: undefined,
         };
     },

@@ -4,7 +4,7 @@ import {SortType} from "@/models/SortType";
         <PageLoader/>
     </div>
     <div v-else-if="addresses !== null" class="richest-page">
-        <h1 class="title is-4 is-spaced">Richest Ellaism Addresses</h1>
+        <h1 class="title is-4 is-spaced">{{ $t('page.richest.title') }}</h1>
         <RichestList :addresses="addresses"/>
     </div>
 </template>
@@ -29,8 +29,8 @@ import {MetaInfo} from 'vue-meta';
     ]),
     metaInfo(): MetaInfo {
         return {
-            title: 'Ellaism Rich List',
-            titleTemplate: 'See the Richest Ellaism Addresses',
+            title: this.$t('page.richest.meta_title').toString(),
+            titleTemplate: this.$t('page.richest.meta_title_template').toString(),
         };
     },
 })

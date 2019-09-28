@@ -1,9 +1,40 @@
 {
   "ellaism": "Ellaism",
+  "latest_blocks": "Latest Blocks",
   "footer_message": "@:ellaism is not funded nor controlled by any entity, it is an open-source platform for decentralized applications.",
+  "page": {
+    "default": {
+      "meta_title": "Blockchain Explorer",
+      "meta_title_template": "%s | Search the @:ellaism Blockchain"
+    },
+    "home": {
+      "title": "@:latest_blocks"
+    },
+    "richest": {
+      "meta_title": "@:ellaism Rich List",
+      "meta_title_template": "%s | See the Richest @:ellaism Addresses",
+      "title": "Richest @:ellaism Addresses"
+    },
+    "address": {
+      "meta_title": "@:ellaism Address",
+      "title": "Address {hash}"
+    },
+    "block_height": {
+      "meta_title": "@:ellaism Block",
+      "title": "Block Height {blockNumber}"
+    },
+    "block": {
+      "meta_title": "@:ellaism Block",
+      "title": "Block {blockNumber}"
+    },
+    "transaction": {
+      "meta_title": "@:ellaism Transaction",
+      "title": "Transaction {hash}"
+    }
+  },
   "navigation": {
     "ellaism": "@:ellaism",
-    "latest_blocks": "Latest Blocks",
+    "latest_blocks": "@:latest_blocks",
     "stats": "Blockchain Stats",
     "stats_subnav": {
       "richest": "Rich List"

@@ -4,7 +4,9 @@ import {SortType} from "@/models/SortType";
         <PageLoader/>
     </div>
     <div v-else-if="transaction !== null" class="transaction-page">
-        <h1 class="title is-4 is-spaced">Transaction <small class="has-text-grey">{{transaction.hash}}</small></h1>
+        <i18n path="page.transaction.title" tag="h1" class="title is-4 is-spaced">
+            <small slot="hash" class="has-text-grey">{{transaction.hash}}</small>
+        </i18n>
         <TransactionDetail :transaction="transaction"/>
     </div>
 </template>
@@ -29,7 +31,7 @@ import {MetaInfo} from 'vue-meta';
     ]),
     metaInfo(): MetaInfo {
         return {
-            title: this.transaction !== null ? `Ellaism Transaction ${this.transaction.hash}` : undefined,
+            title: this.transaction !== null ? `${this.$t('page.transaction.meta_title')} ${this.transaction.hash}` : undefined,
             titleTemplate: undefined,
         };
     },

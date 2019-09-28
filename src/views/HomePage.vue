@@ -4,7 +4,7 @@ import {SortType} from "@/models/SortType";
         <PageLoader/>
     </div>
     <div v-else class="index-page">
-        <h1 class="title is-4 is-spaced">Latest Blocks</h1>
+        <h1 class="title is-4 is-spaced">{{ $t('page.home.title') }}</h1>
         <BlockList :blocks="blocks"/>
     </div>
 </template>
