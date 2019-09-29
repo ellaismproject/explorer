@@ -22,7 +22,7 @@ import store from '@/Store';
 import {mapState} from 'vuex';
 import Transaction from '@/models/Transaction';
 import TransactionSummary from '@/components/TransactionSummary.vue';
-import { MetaInfo } from 'vue-meta';
+import {MetaInfo} from 'vue-meta';
 
 @Component<AddressPage>({
     components: {
@@ -75,7 +75,7 @@ export default class AddressPage extends Vue {
     private async getTransactions(hash: string): Promise<void> {
         try {
             this.transactions = await this.api.getRecentTransactionsByAddressHash(hash, 20);
-        }  catch (e) {
+        } catch (e) {
         }
     }
 }

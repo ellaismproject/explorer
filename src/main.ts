@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import App from './App.vue';
-import Router from './Router';
-import Store from './Store';
+import App from '@/App.vue';
+import Router from '@/Router';
+import Store from '@/Store';
 import './RegisterServiceWorker';
 import VueMeta from 'vue-meta';
 import i18n from '@/plugins/i18n';

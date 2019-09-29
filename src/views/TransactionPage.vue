@@ -31,7 +31,9 @@ import {MetaInfo} from 'vue-meta';
     ]),
     metaInfo(): MetaInfo {
         return {
-            title: this.transaction !== null ? `${this.$t('page.transaction.meta_title')} ${this.transaction.hash}` : undefined,
+            title: this.transaction !== null
+                ? `${this.$t('page.transaction.meta_title')} ${this.transaction.hash}`
+                : undefined,
             titleTemplate: undefined,
         };
     },

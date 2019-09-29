@@ -30,7 +30,9 @@ import {MetaInfo} from 'vue-meta';
     ]),
     metaInfo(): MetaInfo {
         return {
-            title: this.block !== null ? `${this.$t('page.block_height.meta_title')} #${this.block.blockNumber}` : undefined,
+            title: this.block !== null
+                ? `${this.$t('page.block_height.meta_title')} #${this.block.blockNumber}`
+                : undefined,
             titleTemplate: undefined,
         };
     },

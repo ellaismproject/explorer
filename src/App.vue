@@ -22,7 +22,7 @@
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import MainNav from '@/components/MainNav.vue';
-import VersionInfo from './VersionInfo';
+import VersionInfo from '@/VersionInfo';
 import {MetaInfo} from 'vue-meta';
 
 @Component({
