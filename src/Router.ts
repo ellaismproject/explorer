@@ -25,6 +25,10 @@ export default new Router({
             component: () => import(/* webpackChunkName: "blockheightpage" */ '@/views/BlockHeightPage.vue'),
         },
         {
+            path: '/addr/:hash',
+            redirect: '/address/:hash',
+        },
+        {
             path: '/address/:hash',
             name: 'address',
             component: () => import(/* webpackChunkName: "addresspage" */ '@/views/AddressPage.vue'),
@@ -33,6 +37,10 @@ export default new Router({
             path: '/transaction/:hash',
             name: 'transaction',
             component: () => import(/* webpackChunkName: "transactionpage" */ '@/views/TransactionPage.vue'),
+        },
+        {
+            path: '/tx/:hash',
+            redirect: '/tx/:hash',
         },
         {
             path: '/richest',
