@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HomePage from '@/views/HomePage.vue';
 
 Vue.use(Router);
 
@@ -12,7 +11,7 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: HomePage,
+            component: () => import(/* webpackChunkName: "homepage" */ '@/views/HomePage.vue'),
         },
         {
             path: '/block/:hash',
@@ -46,6 +45,10 @@ export default new Router({
             path: '/richest',
             name: 'richest',
             component: () => import(/* webpackChunkName: "richestpage" */ '@/views/RichestPage.vue'),
+        },
+        {
+            path: '*',
+            component: () => import(/* webpackChunkName: "notfound" */ './views/Error404Page.vue'),
         },
     ],
     scrollBehavior(to, from, savedPosition) {
