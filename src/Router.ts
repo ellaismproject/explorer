@@ -11,17 +11,17 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: () => import(/* webpackChunkName: "homepage" */ '@/views/HomePage.vue'),
+            component: () => import(/* webpackChunkName: "pages" */ '@/views/HomePage.vue'),
         },
         {
             path: '/block/:hash',
             name: 'block',
-            component: () => import(/* webpackChunkName: "blockpage" */ '@/views/BlockPage.vue'),
+            component: () => import(/* webpackChunkName: "pages" */ '@/views/BlockPage.vue'),
         },
         {
             path: '/block-height/:blockNumber',
             name: 'blockHeight',
-            component: () => import(/* webpackChunkName: "blockheightpage" */ '@/views/BlockHeightPage.vue'),
+            component: () => import(/* webpackChunkName: "pages" */ '@/views/BlockHeightPage.vue'),
         },
         {
             path: '/addr/:hash',
@@ -30,25 +30,25 @@ export default new Router({
         {
             path: '/address/:hash',
             name: 'address',
-            component: () => import(/* webpackChunkName: "addresspage" */ '@/views/AddressPage.vue'),
+            component: () => import(/* webpackChunkName: "pages" */ '@/views/AddressPage.vue'),
         },
         {
             path: '/transaction/:hash',
             name: 'transaction',
-            component: () => import(/* webpackChunkName: "transactionpage" */ '@/views/TransactionPage.vue'),
+            component: () => import(/* webpackChunkName: "pages" */ '@/views/TransactionPage.vue'),
         },
         {
             path: '/tx/:hash',
-            redirect: '/tx/:hash',
+            redirect: '/transaction/:hash',
         },
         {
             path: '/richest',
             name: 'richest',
-            component: () => import(/* webpackChunkName: "richestpage" */ '@/views/RichestPage.vue'),
+            component: () => import(/* webpackChunkName: "pages" */ '@/views/RichestPage.vue'),
         },
         {
             path: '*',
-            component: () => import(/* webpackChunkName: "notfound" */ './views/Error404Page.vue'),
+            component: () => import(/* webpackChunkName: "pages" */ './views/Error404Page.vue'),
         },
     ],
     scrollBehavior(to, from, savedPosition) {
