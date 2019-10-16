@@ -27,7 +27,7 @@
                         {{ $t('navigation.community_subnav.website') }}
                     </span>
                 </b-navbar-item>
-                <b-navbar-item href="https://github.com/ellaism" rel="nofollow">
+                <b-navbar-item href="https://github.com/ellaismproject" rel="nofollow">
                     <span>
                         <b-icon pack="fab" icon="github"></b-icon>
                         {{ $t('navigation.community_subnav.github') }}
@@ -55,7 +55,7 @@
                         {{ $t('navigation.community_subnav.telegram') }}
                     </span>
                 </b-navbar-item>
-                <b-navbar-item href="https://twitter.com/EllaismCore" rel="nofollow">
+                <b-navbar-item href="https://twitter.com/ellacommunity" rel="nofollow">
                     <span>
                         <b-icon pack="fab" icon="twitter"></b-icon>
                         {{ $t('navigation.community_subnav.twitter') }}
