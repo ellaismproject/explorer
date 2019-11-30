@@ -1,8 +1,6 @@
 <template>
     <div id="app">
-        <header>
-            <MainNav/>
-        </header>
+        <HeaderContent/>
 
         <section class="section">
             <div class="container">
@@ -10,44 +8,56 @@
             </div>
         </section>
 
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <p>&copy; {{ `${appYear} ${$t('ellaism')}` }}</p>
-                <p class="has-text-grey" style="max-width: 560px; margin: 0 auto;">{{ $t('footer_message') }}</p>
-            </div>
-        </footer>
+        <FooterContent/>
     </div>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
-import MainNav from '@/components/MainNav.vue';
-import VersionInfo from '@/VersionInfo';
-import {MetaInfo} from 'vue-meta';
+    import {Component, Vue} from 'vue-property-decorator';
+    import VersionInfo from '@/VersionInfo';
+    import {MetaInfo} from 'vue-meta';
+    import FooterContent from '@/components/FooterContent.vue';
+    import HeaderContent from '@/components/HeaderContent.vue';
 
-@Component({
-    components: {
-        MainNav,
-    },
-    metaInfo(): MetaInfo {
-        return {
-            title: 'Blockchain Explorer',
-            titleTemplate: '%s | Search the Ellaism Blockchain',
-        };
-    },
-})
-export default class App extends Vue {
-    get appVersion(): string {
-        return VersionInfo.Version;
+    @Component({
+        components: {
+            HeaderContent,
+            FooterContent,
+        },
+        metaInfo(): MetaInfo {
+            return {
+                title: 'Blockchain Explorer',
+                titleTemplate: '%s | Search the Ellaism Blockchain',
+            };
+        },
+    })
+    export default class App extends Vue {
     }
-
-    get appYear(): string {
-        return new Date().getFullYear().toString();
-    }
-}
 </script>
 
-<style>
+<style lang="scss">
+    @import "~bulma/sass/utilities/initial-variables";
+    @import "~bulma/sass/utilities/functions";
+
+    $link: #3D996F;
+
+    $footer-background-color: #313131;
+    $footer-padding: 3rem 0 0;
+
+    $ella: #3D996F;
+    $ella-invert: findColorInvert($ella);
+
+    @import "~bulma/sass/utilities/derived-variables";
+    $addColors: (
+            "ella":($ella, $ella-invert),
+    );
+    $colors: map-merge($colors, $addColors);
+
+    $navbar-item-img-max-height: 2.25rem;
+
+    @import "~bulma";
+    @import "~buefy/src/scss/buefy";
+
     body {
         cursor: default;
     }
