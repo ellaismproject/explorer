@@ -8,7 +8,9 @@
             </tr>
             <tr>
                 <th>Age</th>
-                <td>{{moment.unix(syncedBlock.timestamp).fromNow()}} {{`(${moment.unix(syncedBlock.timestamp).format('llll')})`}}</td>
+                <td>{{moment.unix(syncedBlock.timestamp).fromNow()}}
+                    {{`(${moment.unix(syncedBlock.timestamp).format('llll')})`}}
+                </td>
             </tr>
             <tr>
                 <th>Transactions</th>
@@ -17,7 +19,9 @@
             <tr>
                 <th>Relayed By</th>
                 <td>
-                    <router-link :to="{ name: 'address', params: { hash: syncedBlock.miner }}">{{ syncedBlock.minerDisplay }}</router-link>
+                    <router-link :to="{ name: 'address', params: { hash: syncedBlock.miner }}">{{
+                        syncedBlock.minerDisplay }}
+                    </router-link>
                 </td>
             </tr>
             <tr>
@@ -51,7 +55,9 @@
             <tr>
                 <th>Parent Hash</th>
                 <td>
-                    <router-link :to="{ name: 'block', params: { hash: syncedBlock.parentHash }}">{{ syncedBlock.parentHash }}</router-link>
+                    <router-link :to="{ name: 'block', params: { hash: syncedBlock.parentHash }}">{{
+                        syncedBlock.parentHash }}
+                    </router-link>
                 </td>
             </tr>
             <tr>
@@ -68,12 +74,12 @@
 </template>
 
 <script lang="ts">
-import {Component, PropSync, Vue} from 'vue-property-decorator';
-import Block from '@/models/Block';
+    import {Component, PropSync, Vue} from 'vue-property-decorator';
+    import Block from '@/models/Block';
 
-@Component({})
-export default class BlockDetail extends Vue {
-    @PropSync('block')
-    public readonly syncedBlock!: Block;
-}
+    @Component({})
+    export default class BlockDetail extends Vue {
+        @PropSync('block')
+        public readonly syncedBlock!: Block;
+    }
 </script>

@@ -1,5 +1,6 @@
 {
   "ellaism": "Ellaism",
+  "copyright": "{symbol} @:ellaism Project {year} Released under the MIT license",
   "latest_blocks": "Latest Blocks",
   "footer_message": "@:ellaism is not funded nor controlled by any entity, it is an open-source platform for decentralized applications.",
   "page": {
@@ -38,16 +39,16 @@
     }
   },
   "navigation": {
-    "ellaism": "@:ellaism",
     "latest_blocks": "@:latest_blocks",
     "stats": "Blockchain Stats",
     "stats_subnav": {
       "richest": "Rich List"
     },
-    "community": "Community",
-    "community_subnav": {
+    "resource": "Resources",
+    "resource_subnav": {
       "official": "Official",
       "website": "@:ellaism Website",
+      "network_status": "Network Status",
       "github": "@:ellaism GitHub",
       "community": "Community",
       "discord": "Discord",

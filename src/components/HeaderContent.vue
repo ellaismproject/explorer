@@ -72,7 +72,7 @@
             </template>
             <template slot="end">
                 <b-navbar-item tag="div">
-                    <MainNavSearch/>
+                    <HeaderSearch/>
                 </b-navbar-item>
             </template>
         </b-navbar>
@@ -80,12 +80,12 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue, PropSync} from 'vue-property-decorator';
+    import {Component, Vue} from 'vue-property-decorator';
     import LocaleChanger from '@/components/LocaleChanger.vue';
-    import MainNavSearch from '@/components/MainNavSearch.vue';
+    import HeaderSearch from '@/components/HeaderSearch.vue';
 
     @Component({
-        components: {MainNavSearch, LocaleChanger},
+        components: {HeaderSearch, LocaleChanger},
     })
     export default class HeaderContent extends Vue {
     }

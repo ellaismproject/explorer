@@ -23,21 +23,21 @@
 </template>
 
 <script lang="ts">
-import {Component, PropSync, Vue} from 'vue-property-decorator';
-import Address from '@/models/Address';
-import moment from 'moment';
+    import {Component, PropSync, Vue} from 'vue-property-decorator';
+    import Address from '@/models/Address';
+    import moment from 'moment';
 
-@Component({})
-export default class AddressDetail extends Vue {
-    @PropSync('address')
-    public readonly syncedAddress!: Address;
+    @Component({})
+    export default class AddressDetail extends Vue {
+        @PropSync('address')
+        public readonly syncedAddress!: Address;
 
-    get balanceCacheMessage() {
-        if (this.syncedAddress.timestamp == null) {
-            return 'The displayed balance is cached. It will be updated soon.';
+        get balanceCacheMessage() {
+            if (this.syncedAddress.timestamp == null) {
+                return 'The displayed balance is cached. It will be updated soon.';
+            }
+
+            return `The displayed balanced is cached. It was last updated ${moment.unix(this.syncedAddress.timestamp).fromNow()}.`;
         }
-
-        return `The displayed balanced is cached. It was last updated ${moment.unix(this.syncedAddress.timestamp).fromNow()}.`;
     }
-}
 </script>

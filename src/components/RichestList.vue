@@ -6,7 +6,8 @@
                     {{ props.row.rank }}
                 </b-table-column>
                 <b-table-column field="hash" label="Address">
-                    <router-link :to="{ name: 'address', params: { hash: props.row.hash }}">{{ props.row.hash }}</router-link>
+                    <router-link :to="{ name: 'address', params: { hash: props.row.hash }}">{{ props.row.hash }}
+                    </router-link>
                 </b-table-column>
                 <b-table-column field="balance" label="Balance">
                     {{ props.row.balance }}
@@ -24,12 +25,12 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, PropSync} from 'vue-property-decorator';
-import Richest from '@/models/Richest';
+    import {Component, Vue, PropSync} from 'vue-property-decorator';
+    import Richest from '@/models/Richest';
 
-@Component({})
-export default class RichestList extends Vue {
-    @PropSync('addresses')
-    public readonly syncedAddresses?: Richest[];
-}
+    @Component({})
+    export default class RichestList extends Vue {
+        @PropSync('addresses')
+        public readonly syncedAddresses?: Richest[];
+    }
 </script>

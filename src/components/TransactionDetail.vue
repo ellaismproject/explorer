@@ -4,29 +4,39 @@
         <tr>
             <th width="15%">Block Height</th>
             <td>
-                <router-link :to="{ name: 'blockHeight', params: { blockNumber: syncedTransaction.blockNumber }}">{{ syncedTransaction.blockNumber }}</router-link>
+                <router-link :to="{ name: 'blockHeight', params: { blockNumber: syncedTransaction.blockNumber }}">{{
+                    syncedTransaction.blockNumber }}
+                </router-link>
             </td>
         </tr>
         <tr>
             <th>Block Hash</th>
             <td>
-                <router-link :to="{ name: 'block', params: { hash: syncedTransaction.blockHash }}">{{ syncedTransaction.blockHash }}</router-link>
+                <router-link :to="{ name: 'block', params: { hash: syncedTransaction.blockHash }}">{{
+                    syncedTransaction.blockHash }}
+                </router-link>
             </td>
         </tr>
         <tr>
             <th>Age</th>
-            <td>{{moment.unix(syncedTransaction.timestamp).fromNow()}} {{`(${moment.unix(syncedTransaction.timestamp).format('llll')})`}}</td>
+            <td>{{moment.unix(syncedTransaction.timestamp).fromNow()}}
+                {{`(${moment.unix(syncedTransaction.timestamp).format('llll')})`}}
+            </td>
         </tr>
         <tr>
             <th>From</th>
             <td>
-                <router-link :to="{ name: 'address', params: { hash: syncedTransaction.addressFrom }}">{{ syncedTransaction.addressFrom }}</router-link>
+                <router-link :to="{ name: 'address', params: { hash: syncedTransaction.addressFrom }}">{{
+                    syncedTransaction.addressFrom }}
+                </router-link>
             </td>
         </tr>
         <tr>
             <th>To</th>
             <td>
-                <router-link :to="{ name: 'address', params: { hash: syncedTransaction.addressTo }}">{{ syncedTransaction.addressTo }}</router-link>
+                <router-link :to="{ name: 'address', params: { hash: syncedTransaction.addressTo }}">{{
+                    syncedTransaction.addressTo }}
+                </router-link>
             </td>
         </tr>
         <tr>
@@ -60,12 +70,12 @@
 </template>
 
 <script lang="ts">
-import {Component, PropSync, Vue} from 'vue-property-decorator';
-import Transaction from '@/models/Transaction';
+    import {Component, PropSync, Vue} from 'vue-property-decorator';
+    import Transaction from '@/models/Transaction';
 
-@Component({})
-export default class TransactionDetail extends Vue {
-    @PropSync('transaction')
-    public readonly syncedTransaction!: Transaction;
-}
+    @Component({})
+    export default class TransactionDetail extends Vue {
+        @PropSync('transaction')
+        public readonly syncedTransaction!: Transaction;
+    }
 </script>

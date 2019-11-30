@@ -7,7 +7,6 @@ import VueMeta from 'vue-meta';
 import i18n from '@/plugins/i18n';
 import Buefy from 'buefy';
 import moment from 'moment';
-import 'buefy/dist/buefy.css';
 
 Vue.prototype.moment = moment;
 Vue.use(VueMeta, {
