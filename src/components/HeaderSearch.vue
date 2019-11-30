@@ -18,7 +18,7 @@
     import SearchResult from '@/models/SearchResult';
 
     @Component({})
-    export default class MainNavSearch extends Vue {
+    export default class HeaderSearch extends Vue {
         public isLoading: boolean = false;
         public isError: boolean = false;
         public query: string = '';
