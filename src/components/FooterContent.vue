@@ -1,10 +1,5 @@
 <template>
     <footer class="footer">
-        <div class="container">
-            <router-link :to="{ name: 'home' }" class="logo-footer">
-                <img src="../assets/ellaism-logo-white-name.svg" v-bind:alt="$t('ellaism')">
-            </router-link>
-        </div>
         <div class="footer-bottom">
             <div class="container">
                 <div class="level">
