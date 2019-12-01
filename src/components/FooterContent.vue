@@ -36,37 +36,25 @@
     }
 </script>
 
-<style lang="scss" scoped>
-    @import "~bulma/sass/utilities/all";
+<style lang="sass" scoped>
+    @import "~bulma/sass/utilities/all"
 
-    .logo-footer {
-        display: block;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
+    .footer
+        padding-top: 0
 
-    .logo-footer img {
-        max-height: 2.25rem;
-    }
+    .footer-bottom
+        color: #9D9D9D
+        padding: 1.5rem
+        background-color: #242424
 
-    .footer-bottom {
-        color: #9D9D9D;
-        padding: 1.5rem;
-        background-color: #242424;
-    }
+        a
+            color: #9D9D9D
 
-    @media screen and (max-width: $tablet - 1px) {
-        .footer-bottom {
-            text-align: center;
-        }
-    }
+            span.icon
+                color: $primary
+                width: 1.5rem
 
-    .footer-bottom a {
-        color: #9D9D9D;
-    }
-
-    .footer-bottom a span.icon {
-        color: $primary;
-        width: 1.5rem;
-    }
+    +mobile
+        .footer-bottom
+            text-align: center
 </style>
