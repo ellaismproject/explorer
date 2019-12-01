@@ -1,8 +1,6 @@
 {
   "ellaism": "Ellaism",
-  "copyright": "{symbol} @:ellaism Project {year} Released under the MIT license",
   "latest_blocks": "Latest Blocks",
-  "footer_message": "@:ellaism is not funded nor controlled by any entity, it is an open-source platform for decentralized applications.",
   "page": {
     "default": {
       "meta_title": "Blockchain Explorer",
@@ -60,5 +58,9 @@
       "placeholder": "Lookup blocks, transactions, hash...",
       "button": "Search"
     }
+  },
+  "footer": {
+    "copyright": "{symbol} @:ellaism Project {year} Released under the MIT license",
+    "network_status": "Network Status"
   }
 }

@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="level">
                     <div class="level-left">
-                        <i18n path="copyright" tag="p">
+                        <i18n path="footer.copyright" tag="p">
                             <span slot="symbol">&copy;</span>
                             <span slot="year">{{year}}</span>
                         </i18n>
@@ -12,7 +12,7 @@
                     <div class="level-right">
                         <a href="https://stats.ellascout.com">
                             <b-icon pack="fas" icon="circle" size="is-small"/>
-                            {{ $t('navigation.resource_subnav.network_status') }}</a>
+                            {{ $t('footer.network_status') }}</a>
                     </div>
                 </div>
             </div>
