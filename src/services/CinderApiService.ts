@@ -110,8 +110,8 @@ export default class CallTrackApiService implements ICallTrackApiService {
         return response.data;
     }
 
-    public async search(query: string): Promise<SearchResult> {
-        const url: string = `${this.baseUrl}/v1/search?query=${query}`;
+    public async search(term: string): Promise<SearchResult> {
+        const url: string = `${this.baseUrl}/v1/search?term=${term}`;
         const response = await this.client.get(url);
 
         return response.data;

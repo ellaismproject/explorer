@@ -1,7 +1,7 @@
 <template>
     <div class="field has-addons">
         <div class="control">
-            <input v-model="query" class="input" type="text" v-bind:placeholder="$t('navigation.search.placeholder')"/>
+            <input v-model="term" class="input" type="text" v-bind:placeholder="$t('navigation.search.placeholder')"/>
         </div>
         <div class="control">
             <button class="button is-light" :class="{ 'is-loading': isLoading }" v-on:click="search">
@@ -21,23 +21,23 @@
     export default class HeaderSearch extends Vue {
         public isLoading: boolean = false;
         public isError: boolean = false;
-        public query: string = '';
+        public term: string = '';
         private api = new CinderApiService();
 
         public async search() {
-            if (this.query.length < 1) {
+            if (this.term.length < 1) {
                 return;
             }
 
             this.isLoading = true;
             let result: SearchResult | null = null;
             try {
-                result = await this.api.search(this.query);
+                result = await this.api.search(this.term);
             } catch (e) {
                 this.isError = true;
             }
 
-            this.query = '';
+            this.term = '';
             this.isLoading = false;
 
             if (this.isError || result === null) {
