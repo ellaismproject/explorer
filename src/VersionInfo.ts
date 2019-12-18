@@ -1,3 +1,3 @@
 export default class VersionInfo {
-    public static Version: string = '1.1.193331';
+    public static Version: string = '1.2.193511';
 }
