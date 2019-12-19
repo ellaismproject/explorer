@@ -19,8 +19,8 @@
             <tr>
                 <th>Relayed By</th>
                 <td>
-                    <router-link :to="{ name: 'address', params: { hash: syncedBlock.miner }}">{{
-                        syncedBlock.minerDisplay }}
+                    <router-link :to="{ name: 'address', params: { hash: syncedBlock.miner }}">
+                        {{ syncedBlock.minerDisplay || 'Unknown' }}
                     </router-link>
                 </td>
             </tr>

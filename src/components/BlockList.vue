@@ -7,8 +7,8 @@
                     </router-link>
                 </b-table-column>
                 <b-table-column field="miner" label="Relayed By">
-                    <router-link :to="{ name: 'address', params: { hash: props.row.miner }}">{{ props.row.minerDisplay
-                        }}
+                    <router-link :to="{ name: 'address', params: { hash: props.row.miner }}">
+                        {{ props.row.minerDisplay || 'Unknown' }}
                     </router-link>
                 </b-table-column>
                 <b-table-column field="timestamp" label="Age">
