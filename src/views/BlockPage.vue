@@ -1,13 +1,13 @@
 <template>
-    <div v-if="isLoading">
-        <PageLoader/>
-    </div>
-    <div v-else-if="block !== null" class="block-page">
-        <i18n path="page.block.title" tag="h1" class="title is-4 is-spaced">
-            <small slot="blockNumber" class="has-text-grey">{{`#${block.blockNumber}`}}</small>
-        </i18n>
-        <BlockDetail :block="block"/>
-        <TransactionSummary :transactions="transactions"/>
+    <div class="block-page">
+        <b-loading :is-full-page="false" :active.sync="isLoading"/>
+        <div v-if="block !== null">
+            <i18n path="page.block.title" tag="h1" class="title is-4 is-spaced">
+                <small slot="blockNumber" class="has-text-grey">{{`#${block.blockNumber}`}}</small>
+            </i18n>
+            <BlockDetail :block="block"/>
+            <TransactionSummary :transactions="transactions"/>
+        </div>
     </div>
 </template>
 
@@ -15,23 +15,16 @@
     import {Component, Vue, Watch} from 'vue-property-decorator';
     import BlockDetail from '@/components/BlockDetail.vue';
     import TransactionSummary from '@/components/TransactionSummary.vue';
-    import PageLoader from '@/components/PageLoader.vue';
     import Block from '@/models/Block';
     import CinderApiService from '@/services/CinderApiService';
     import Transaction from '@/models/Transaction';
-    import store from '@/Store';
-    import {mapState} from 'vuex';
     import {MetaInfo} from 'vue-meta';
 
     @Component<BlockPage>({
         components: {
             BlockDetail,
             TransactionSummary,
-            PageLoader,
         },
-        computed: mapState([
-            'isLoading',
-        ]),
         metaInfo(): MetaInfo {
             return {
                 title: this.block !== null ? `${this.$t('page.block.meta_title')} #${this.block.blockNumber}` : undefined,
@@ -40,9 +33,9 @@
         },
     })
     export default class BlockPage extends Vue {
-        public isLoading!: boolean;
         public block: Block | null = null;
         public transactions: Transaction[] | null = null;
+        public isLoading: boolean = false;
         private api = new CinderApiService();
 
         @Watch('$route.params.hash')
@@ -51,14 +44,13 @@
         }
 
         public async created() {
+            this.isLoading = true;
             await this.getBlockAndTransactions(this.$route.params.hash);
+            this.isLoading = false;
         }
 
         private async getBlockAndTransactions(hash: string): Promise<void> {
-            store.commit('toggleLoader', true);
             await this.getBlock(hash);
-            store.commit('toggleLoader', false);
-
             if (this.block != null && this.block.transactionCount > 0) {
                 await this.getTransactions(hash);
             }
