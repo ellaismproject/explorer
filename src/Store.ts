@@ -4,13 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        isLoading: false,
-    },
-    mutations: {
-        toggleLoader(state, isLoading) {
-            state.isLoading = isLoading;
-        },
-    },
+    state: {},
+    mutations: {},
     actions: {},
 });
