@@ -78,4 +78,7 @@
 
     .is-no-wrap
         white-space: nowrap
+
+    #app section.section
+        min-height: 100vh
 </style>
