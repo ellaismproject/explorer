@@ -41,7 +41,9 @@ import {SortType} from "@/models/SortType";
 
         @Watch('$route.params.hash')
         public async pageNavigated(hash: string) {
+            this.isLoading = true;
             await this.getAddressAndTransactions(hash);
+            this.isLoading = false;
         }
 
         public async created() {

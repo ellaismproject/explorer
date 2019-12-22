@@ -40,7 +40,9 @@
 
         @Watch('$route.params.hash')
         public async pageNavigated(hash: string) {
+            this.isLoading = true;
             await this.getBlockAndTransactions(hash);
+            this.isLoading = false;
         }
 
         public async created() {
