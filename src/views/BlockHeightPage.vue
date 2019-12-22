@@ -2,7 +2,7 @@
     <div v-if="isLoading">
         <PageLoader/>
     </div>
-    <div v-else-if="block !== null" class="block-page">
+    <div v-else-if="block !== null" class="block-height-page">
         <i18n path="page.block_height.title" tag="h1" class="title is-4 is-spaced">
             <small slot="blockNumber" class="has-text-grey">{{`#${block.blockNumber}`}}</small>
         </i18n>
