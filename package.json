@@ -29,9 +29,9 @@
     "@vue/cli-plugin-typescript": "^4.1.1",
     "@vue/cli-service": "^4.1.1",
     "filemanager-webpack-plugin": "^2.0.5",
-    "sass": "^1.23.7",
+    "sass": "^1.24.0",
     "sass-loader": "^8.0.0",
-    "typescript": "^3.7.3",
+    "typescript": "^3.7.4",
     "vue-template-compiler": "^2.6.11"
   }
 }
