@@ -14,7 +14,6 @@
 
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
-    import VersionInfo from '@/VersionInfo';
     import {MetaInfo} from 'vue-meta';
     import FooterContent from '@/components/FooterContent.vue';
     import HeaderContent from '@/components/HeaderContent.vue';
