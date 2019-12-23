@@ -1,9 +1,10 @@
 import {SortType} from "@/models/SortType";
 <template>
     <div class="page home-page">
+        <b-loading :is-full-page="false" :active.sync="isLoading"/>
         <h1 class="title is-4 is-spaced">{{ $t('page.home.title') }}</h1>
         <b-table class="is-striped is-hoverable is-fullwidth" :data="blocks" paginated backend-pagination
-                 @page-change="onPageChange" :total="total" :per-page="perPage" icon-pack="fas" :loading="isLoading">
+                 @page-change="onPageChange" :total="total" :per-page="perPage" icon-pack="fas">
             <template slot-scope="props">
                 <b-table-column field="blockNumber" label="Height">
                     <router-link :to="{ name: 'block', params: { hash: props.row.hash }}">{{ props.row.blockNumber }}
