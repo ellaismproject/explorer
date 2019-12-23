@@ -1,5 +1,5 @@
 <template>
-    <div class="block-height-page">
+    <div class="page block-height-page">
         <b-loading :is-full-page="false" :active.sync="isLoading"/>
         <div v-if="block !== null">
             <i18n path="page.block_height.title" tag="h1" class="title is-4 is-spaced">

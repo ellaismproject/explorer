@@ -1,5 +1,5 @@
 <template>
-    <div class="error-404-page">
+    <div class="page error-404-page">
         <section class="hero is-fullheight-with-navbar">
             <div class="hero-body">
                 <div class="container has-text-centered">

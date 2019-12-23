@@ -1,6 +1,6 @@
 import {SortType} from "@/models/SortType";
 <template>
-    <div class="richest-page">
+    <div class="page richest-page">
         <h1 class="title is-4 is-spaced">{{ $t('page.richest.title') }}</h1>
         <b-table class="is-striped is-hoverable is-fullwidth" :data="addresses" paginated backend-pagination
                  @page-change="onPageChange" :total="total" :per-page="perPage" icon-pack="fas" :loading="isLoading">

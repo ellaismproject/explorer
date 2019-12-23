@@ -1,6 +1,6 @@
 import {SortType} from "@/models/SortType";
 <template>
-    <div class="address-page">
+    <div class="page address-page">
         <b-loading :is-full-page="false" :active.sync="isLoading"/>
         <div v-if="address !== null">
             <i18n path="page.address.title" tag="h1" class="title is-4 is-spaced">

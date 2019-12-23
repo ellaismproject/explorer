@@ -1,6 +1,6 @@
 import {SortType} from "@/models/SortType";
 <template>
-    <div class="transaction-page">
+    <div class="page transaction-page">
         <b-loading :is-full-page="false" :active.sync="isLoading"/>
         <div v-if="transaction !== null">
             <i18n path="page.transaction.title" tag="h1" class="title is-4 is-spaced">
