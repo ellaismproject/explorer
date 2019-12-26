@@ -38,18 +38,14 @@
         @Watch('$route.params.hash')
         public async pageNavigated(blockNumber: string) {
             this.isLoading = true;
-            await this.getBlockAndTransactions(blockNumber);
+            await this.getBlock(blockNumber);
             this.isLoading = false;
         }
 
         public async created() {
             this.isLoading = true;
-            await this.getBlockAndTransactions(this.$route.params.blockNumber);
+            await this.getBlock(this.$route.params.blockNumber);
             this.isLoading = false;
-        }
-
-        private async getBlockAndTransactions(blockNumber: string): Promise<void> {
-            await this.getBlock(blockNumber);
         }
 
         private async getBlock(blockNumber: string): Promise<void> {
