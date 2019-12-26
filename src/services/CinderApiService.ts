@@ -7,7 +7,7 @@ import PagedResult from '@/paging/PagedResult';
 import {SortType} from '@/models/SortType';
 import Richest from '@/models/Richest';
 
-interface ICallTrackApiService {
+interface ICinderApiService {
     getAddressByHash(hash: string): Promise<Address>;
 
     getBlockByHash(hash: string): Promise<Block>;
@@ -30,7 +30,7 @@ interface ICallTrackApiService {
     search(query: string): Promise<SearchResult>;
 }
 
-export default class CallTrackApiService implements ICallTrackApiService {
+export default class CinderApiService implements ICinderApiService {
     private baseUrl: string = process.env.VUE_APP_API_URI;
     private client: AxiosInstance;
 
