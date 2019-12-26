@@ -55,6 +55,8 @@
             await this.getBlock(hash);
             if (this.block != null && this.block.transactionCount > 0) {
                 await this.getTransactions(hash);
+            } else {
+                this.transactions = null;
             }
         }
 
