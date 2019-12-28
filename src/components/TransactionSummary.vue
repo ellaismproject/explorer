@@ -22,8 +22,8 @@
                                      class="is-medium-hash text-truncate">{{ props.row.addressTo }}
                         </router-link>
                     </b-table-column>
-                    <b-table-column field="value" label="Value">
-                        {{ props.row.value }}
+                    <b-table-column field="value" label="Value" numeric>
+                        <CurrencyElla :balance="props.row.value" format="cryptoFull"/>
                     </b-table-column>
                 </template>
             </b-table>
@@ -34,8 +34,11 @@
 <script lang="ts">
     import {Component, PropSync, Vue} from 'vue-property-decorator';
     import Transaction from '@/models/Transaction';
+    import CurrencyElla from '@/components/CurrencyElla.vue';
 
-    @Component({})
+    @Component({
+        components: {CurrencyElla}
+    })
     export default class TransactionSummary extends Vue {
         @PropSync('transactions')
         public readonly syncedTransactions?: Transaction[];

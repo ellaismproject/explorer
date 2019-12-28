@@ -41,7 +41,7 @@
         </tr>
         <tr>
             <th>Value</th>
-            <td>{{`${syncedTransaction.value} ELLA`}}</td>
+            <td><CurrencyElla :balance="syncedTransaction.value" format="cryptoFull" /></td>
         </tr>
         <tr>
             <th>Gas Used</th>
@@ -72,8 +72,11 @@
 <script lang="ts">
     import {Component, PropSync, Vue} from 'vue-property-decorator';
     import Transaction from '@/models/Transaction';
+    import CurrencyElla from '@/components/CurrencyElla.vue';
 
-    @Component({})
+    @Component({
+        components: {CurrencyElla}
+    })
     export default class TransactionDetail extends Vue {
         @PropSync('transaction')
         public readonly syncedTransaction!: Transaction;

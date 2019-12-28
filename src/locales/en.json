@@ -1,5 +1,6 @@
 {
   "ellaism": "Ellaism",
+  "currency_ella": "{amount} ELLA",
   "latest_blocks": "Latest Blocks",
   "page": {
     "default": {

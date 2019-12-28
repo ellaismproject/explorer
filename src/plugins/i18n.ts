@@ -8,8 +8,11 @@ const numberFormats = {
         },
         crypto: {
             style: 'decimal',
-            minimumFractionDigits: 4,
             maximumFractionDigits: 4,
+        },
+        cryptoFull: {
+            style: 'decimal',
+            maximumFractionDigits: 18,
         },
     },
 };

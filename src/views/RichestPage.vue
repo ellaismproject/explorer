@@ -10,7 +10,8 @@ import {SortType} from "@/models/SortType";
                     {{ props.row.rank }}
                 </b-table-column>
                 <b-table-column field="hash" label="Address">
-                    <router-link :to="{ name: 'address', params: { hash: props.row.hash }}">{{ props.row.hash }}</router-link>
+                    <router-link :to="{ name: 'address', params: { hash: props.row.hash }}">{{ props.row.hash }}
+                    </router-link>
                     <div class="address-meta">
                         <small v-if="props.row.name !== null" class="has-text-grey-light">{{ props.row.name }}</small>
                         <b-taglist v-if="props.row.name != null" class="is-inline-block">
@@ -19,7 +20,7 @@ import {SortType} from "@/models/SortType";
                     </div>
                 </b-table-column>
                 <b-table-column field="balance" label="Balance" numeric>
-                    <i18n-n :value="props.row.balance" format="crypto"/>
+                    <CurrencyElla :balance="props.row.balance" format="crypto"/>
                 </b-table-column>
             </template>
             <template slot="empty">
@@ -41,8 +42,10 @@ import {SortType} from "@/models/SortType";
     import CinderApiService from '@/services/CinderApiService';
     import Richest from '@/models/Richest';
     import {MetaInfo} from 'vue-meta';
+    import CurrencyElla from '@/components/CurrencyElla.vue';
 
     @Component({
+        components: {CurrencyElla},
         metaInfo(): MetaInfo {
             return {
                 title: this.$t('page.richest.meta_title').toString(),

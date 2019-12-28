@@ -13,7 +13,7 @@
             <tr>
                 <th width="15%">Balance</th>
                 <td>
-                    {{`${syncedAddress.balance} ELLA`}}
+                    <CurrencyElla :balance="syncedAddress.balance" format="cryptoFull"/>
                     <small class="is-block has-text-grey">{{balanceCacheMessage}}</small>
                 </td>
             </tr>
@@ -21,7 +21,7 @@
                 <th width="15%">Tags</th>
                 <td>
                     <b-taglist>
-                        <b-tag v-for="tag in syncedAddress.tags">{{ tag }}</b-tag>
+                        <b-tag v-for="(tag, index) in syncedAddress.tags" :key="index">{{ tag }}</b-tag>
                     </b-taglist>
                 </td>
             </tr>
@@ -42,8 +42,11 @@
     import {Component, PropSync, Vue} from 'vue-property-decorator';
     import Address from '@/models/Address';
     import moment from 'moment';
+    import CurrencyElla from '@/components/CurrencyElla.vue';
 
-    @Component({})
+    @Component({
+        components: {CurrencyElla},
+    })
     export default class AddressDetail extends Vue {
         @PropSync('address')
         public readonly syncedAddress!: Address;
