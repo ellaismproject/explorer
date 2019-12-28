@@ -34,15 +34,15 @@
 </template>
 
 <script lang="ts">
-    import {Component, PropSync, Vue} from 'vue-property-decorator';
-    import Transaction from '@/models/Transaction';
-    import CurrencyElla from '@/components/CurrencyElla.vue';
+import {Component, PropSync, Vue} from 'vue-property-decorator';
+import Transaction from '@/models/Transaction';
+import CurrencyElla from '@/components/CurrencyElla.vue';
 
-    @Component({
-        components: {CurrencyElla}
-    })
-    export default class TransactionSummary extends Vue {
-        @PropSync('transactions')
-        public readonly syncedTransactions?: Transaction[];
-    }
+@Component({
+    components: {CurrencyElla},
+})
+export default class TransactionSummary extends Vue {
+    @PropSync('transactions')
+    public readonly syncedTransactions?: Transaction[];
+}
 </script>

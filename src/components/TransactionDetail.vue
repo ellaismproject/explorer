@@ -70,15 +70,15 @@
 </template>
 
 <script lang="ts">
-    import {Component, PropSync, Vue} from 'vue-property-decorator';
-    import Transaction from '@/models/Transaction';
-    import CurrencyElla from '@/components/CurrencyElla.vue';
+import {Component, PropSync, Vue} from 'vue-property-decorator';
+import Transaction from '@/models/Transaction';
+import CurrencyElla from '@/components/CurrencyElla.vue';
 
-    @Component({
-        components: {CurrencyElla}
-    })
-    export default class TransactionDetail extends Vue {
-        @PropSync('transaction')
-        public readonly syncedTransaction!: Transaction;
-    }
+@Component({
+    components: {CurrencyElla},
+})
+export default class TransactionDetail extends Vue {
+    @PropSync('transaction')
+    public readonly syncedTransaction!: Transaction;
+}
 </script>
