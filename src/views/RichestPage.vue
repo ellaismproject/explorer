@@ -6,15 +6,20 @@ import {SortType} from "@/models/SortType";
         <b-table class="is-striped is-hoverable is-fullwidth" :data="addresses" paginated backend-pagination
                  @page-change="onPageChange" :total="total" :per-page="perPage" icon-pack="fas">
             <template slot-scope="props">
-                <b-table-column field="rank" label="Rank">
+                <b-table-column field="rank" label="Rank" numeric>
                     {{ props.row.rank }}
                 </b-table-column>
                 <b-table-column field="hash" label="Address">
-                    <router-link :to="{ name: 'address', params: { hash: props.row.hash }}">{{ props.row.hash }}
-                    </router-link>
+                    <router-link :to="{ name: 'address', params: { hash: props.row.hash }}">{{ props.row.hash }}</router-link>
+                    <div class="address-meta">
+                        <small v-if="props.row.name !== null" class="has-text-grey-light">{{ props.row.name }}</small>
+                        <b-taglist v-if="props.row.name != null" class="is-inline-block">
+                            <b-tag v-for="(tag, index) in props.row.tags" :key="index">{{ tag }}</b-tag>
+                        </b-taglist>
+                    </div>
                 </b-table-column>
-                <b-table-column field="balance" label="Balance">
-                    {{ props.row.balance }}
+                <b-table-column field="balance" label="Balance" numeric>
+                    <i18n-n :value="props.row.balance" format="crypto"/>
                 </b-table-column>
             </template>
             <template slot="empty">
@@ -76,3 +81,9 @@ import {SortType} from "@/models/SortType";
         }
     }
 </script>
+
+<style scoped>
+    .address-meta > small {
+        margin-right: 0.5rem;
+    }
+</style>
