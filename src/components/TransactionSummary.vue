@@ -10,7 +10,9 @@
                         </router-link>
                     </b-table-column>
                     <b-table-column field="timestamp" label="Age">
-                        {{ moment.unix(props.row.timestamp).fromNow() }}
+                        <b-tooltip :label="moment.unix(props.row.timestamp).format('llll')" dashed>
+                            {{ moment.unix(props.row.timestamp).fromNow() }}
+                        </b-tooltip>
                     </b-table-column>
                     <b-table-column field="addressFrom" label="From">
                         <router-link :to="{ name: 'address', params: { hash: props.row.addressFrom }}"

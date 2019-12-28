@@ -16,7 +16,9 @@ import {SortType} from "@/models/SortType";
                     </router-link>
                 </b-table-column>
                 <b-table-column field="timestamp" label="Age">
-                    {{ moment.unix(props.row.timestamp).fromNow() }}
+                    <b-tooltip :label="moment.unix(props.row.timestamp).format('llll')" dashed>
+                        {{ moment.unix(props.row.timestamp).fromNow() }}
+                    </b-tooltip>
                 </b-table-column>
                 <b-table-column field="transactionCount" label="Transactions" numeric>
                     {{ props.row.transactionCount }}
