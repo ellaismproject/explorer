@@ -2,11 +2,27 @@
     <div class="table-container">
         <table class="table is-fullwidth">
             <tbody>
+            <tr v-if="syncedAddress.name !== null">
+                <th width="15%">Name</th>
+                <td>{{syncedAddress.name}}</td>
+            </tr>
+            <tr v-if="syncedAddress.website !== null">
+                <th width="15%">Website</th>
+                <td><a :href="syncedAddress.website" rel="nofollow">{{syncedAddress.website}}</a></td>
+            </tr>
             <tr>
                 <th width="15%">Balance</th>
                 <td>
                     {{`${syncedAddress.balance} ELLA`}}
                     <small class="is-block has-text-grey">{{balanceCacheMessage}}</small>
+                </td>
+            </tr>
+            <tr v-if="hasTags">
+                <th width="15%">Tags</th>
+                <td>
+                    <b-taglist>
+                        <b-tag v-for="tag in syncedAddress.tags">{{ tag }}</b-tag>
+                    </b-taglist>
                 </td>
             </tr>
             <tr v-if="syncedAddress.blocksMined !== null">
@@ -38,6 +54,10 @@
             }
 
             return `The displayed balanced is cached. It was last updated ${moment.unix(this.syncedAddress.timestamp).fromNow()}.`;
+        }
+
+        get hasTags() {
+            return this.syncedAddress.tags != null && this.syncedAddress.tags.length > 0;
         }
     }
 </script>
