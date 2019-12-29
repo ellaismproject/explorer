@@ -1,5 +1,5 @@
 <template>
-    <div v-if="syncedTransactions !== null && syncedTransactions.length > 0" class="transaction-summary">
+    <div class="transaction-summary">
         <h2 class="title is-4 is-spaced">Transactions</h2>
         <div class="table-container">
             <b-table class="is-striped is-hoverable is-fullwidth" :data="syncedTransactions">
@@ -28,6 +28,16 @@
                         <CurrencyElla :balance="props.row.value" format="cryptoFull"/>
                     </b-table-column>
                 </template>
+                <template slot="empty">
+                    <section class="section">
+                        <div class="content has-text-grey has-text-centered">
+                            <p>
+                                <b-icon pack="fas" icon="coins" size="is-large"/>
+                            </p>
+                            <p>No transactions found.</p>
+                        </div>
+                    </section>
+                </template>
             </b-table>
         </div>
     </div>
@@ -43,6 +53,6 @@ import CurrencyElla from '@/components/CurrencyElla.vue';
 })
 export default class TransactionSummary extends Vue {
     @PropSync('transactions')
-    public readonly syncedTransactions?: Transaction[];
+    public readonly syncedTransactions!: Transaction[];
 }
 </script>

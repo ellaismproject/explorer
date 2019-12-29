@@ -34,7 +34,7 @@
     })
     export default class BlockPage extends Vue {
         public block: Block | null = null;
-        public transactions: Transaction[] | null = null;
+        public transactions: Transaction[] = [];
         public isLoading: boolean = false;
         private api = new CinderApiService();
 
@@ -56,7 +56,7 @@
             if (this.block != null && this.block.transactionCount > 0) {
                 await this.getTransactions(hash);
             } else {
-                this.transactions = null;
+                this.transactions = [];
             }
         }
 

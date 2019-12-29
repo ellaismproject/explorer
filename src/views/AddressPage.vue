@@ -35,7 +35,7 @@ import {SortType} from "@/models/SortType";
     })
     export default class AddressPage extends Vue {
         public address: Address | null = null;
-        public transactions: Transaction[] | null = null;
+        public transactions: Transaction[] = [];
         public isLoading: boolean = false;
         private api = new CinderApiService();
 
