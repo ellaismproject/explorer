@@ -3,12 +3,13 @@
         <table class="table is-fullwidth">
             <tbody>
             <tr v-if="syncedAddress.name !== null">
-                <th width="15%">Name</th>
-                <td>{{syncedAddress.name}}</td>
-            </tr>
-            <tr v-if="syncedAddress.website !== null">
-                <th width="15%">Website</th>
-                <td><a :href="syncedAddress.website" rel="nofollow">{{syncedAddress.website}}</a></td>
+                <th width="15%">Wallet</th>
+                <td v-if="syncedAddress.website !== null">
+                    <a :href="syncedAddress.website" rel="nofollow">{{syncedAddress.name}}
+                        <b-icon pack="fas" icon="external-link-square-alt" size="is-small"/>
+                    </a>
+                </td>
+                <td v-else>{{syncedAddress.name}}</td>
             </tr>
             <tr>
                 <th width="15%">Balance</th>
