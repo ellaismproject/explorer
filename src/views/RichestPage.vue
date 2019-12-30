@@ -1,4 +1,3 @@
-import {SortType} from "@/models/SortType";
 <template>
     <div class="page richest-page">
         <b-loading :is-full-page="false" :active.sync="isLoading"/>

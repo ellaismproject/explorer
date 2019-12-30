@@ -1,4 +1,3 @@
-import {SortType} from "@/models/SortType";
 <template>
     <div class="page transaction-page">
         <b-loading :is-full-page="false" :active.sync="isLoading"/>
