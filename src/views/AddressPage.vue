@@ -1,4 +1,3 @@
-import {SortType} from "@/models/SortType";
 <template>
     <div class="page address-page">
         <b-loading :is-full-page="false" :active.sync="isLoading"/>
@@ -7,7 +6,7 @@ import {SortType} from "@/models/SortType";
                 <small slot="hash" class="has-text-grey">{{address.hash}}</small>
             </i18n>
             <AddressDetail :address="address"/>
-            <TransactionSummary :transactions="transactions"/>
+            <TransactionSummary :transactions="transactions" :total="total" :per-page="size" @page-change="pageChange"/>
         </div>
     </div>
 </template>
@@ -20,6 +19,7 @@ import {SortType} from "@/models/SortType";
     import Transaction from '@/models/Transaction';
     import TransactionSummary from '@/components/TransactionSummary.vue';
     import {MetaInfo} from 'vue-meta';
+    import {SortType} from '@/models/SortType';
 
     @Component<AddressPage>({
         components: {
@@ -34,6 +34,8 @@ import {SortType} from "@/models/SortType";
         },
     })
     export default class AddressPage extends Vue {
+        public size: number = 20;
+        public total: number = 0;
         public address: Address | null = null;
         public transactions: Transaction[] = [];
         public isLoading: boolean = false;
@@ -52,9 +54,19 @@ import {SortType} from "@/models/SortType";
             this.isLoading = false;
         }
 
+        public async pageChange(page: number) {
+            if (this.address === null || this.address.hash === null) {
+                return;
+            }
+
+            this.isLoading = true;
+            await this.getTransactions(this.address.hash, page, this.size);
+            this.isLoading = false;
+        }
+
         private async getAddressAndTransactions(hash: string): Promise<void> {
             await this.getAddress(hash);
-            await this.getTransactions(hash);
+            await this.getTransactions(hash, 1, this.size);
         }
 
         private async getAddress(hash: string): Promise<void> {
@@ -67,9 +79,11 @@ import {SortType} from "@/models/SortType";
             }
         }
 
-        private async getTransactions(hash: string): Promise<void> {
+        private async getTransactions(hash: string, page: number, size: number): Promise<void> {
             try {
-                this.transactions = await this.api.getRecentTransactionsByAddressHash(hash, 20);
+                const results = await this.api.getTransactionsByAddressHash(hash, page, size, SortType.Descending);
+                this.transactions = results.items;
+                this.total = results.total;
             } catch (e) {
             }
         }
