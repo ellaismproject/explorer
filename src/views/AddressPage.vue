@@ -89,3 +89,11 @@
         }
     }
 </script>
+
+<style lang="sass" scoped>
+    @import "~bulma/sass/utilities/mixins"
+
+    +mobile
+        .title small
+            font-size: 1rem
+</style>

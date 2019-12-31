@@ -63,21 +63,6 @@
         text-overflow: ellipsis
         white-space: nowrap
 
-    .is-medium-hash
-        display: inline-block
-        max-width: 220px
-
-    .is-large-hash
-        display: inline-block
-        max-width: 320px
-
-    .is-extra-large-hash
-        display: inline-block
-        max-width: 420px
-
-    .is-no-wrap
-        white-space: nowrap
-
     #app section.section, #app section.section .page
         min-height: 100vh
 </style>

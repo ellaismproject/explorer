@@ -9,9 +9,10 @@
                     {{ props.row.rank }}
                 </b-table-column>
                 <b-table-column field="hash" label="Address">
-                    <router-link :to="{ name: 'address', params: { hash: props.row.hash }}">{{ props.row.hash }}
+                    <router-link :to="{ name: 'address', params: { hash: props.row.hash }}"
+                                 class="is-hash text-truncate">{{ props.row.hash }}
                     </router-link>
-                    <div class="address-meta">
+                    <div class="address-meta is-hidden-mobile">
                         <small v-if="props.row.name !== null" class="has-text-grey-light">{{ props.row.name }}</small>
                         <b-taglist v-if="props.row.name != null" class="is-inline-block">
                             <b-tag v-for="(tag, index) in props.row.tags" :key="index">{{ tag }}</b-tag>
@@ -84,8 +85,14 @@
     }
 </script>
 
-<style scoped>
-    .address-meta > small {
-        margin-right: 0.5rem;
-    }
+<style lang="sass" scoped>
+    @import "~bulma/sass/utilities/mixins"
+
+    .address-meta > small
+        margin-right: 0.5rem
+
+    +mobile
+        .is-hash
+            display: inline-block
+            max-width: 200px
 </style>

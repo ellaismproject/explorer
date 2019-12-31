@@ -27,7 +27,7 @@
                 </b-table-column>
                 <b-table-column field="hash" label="Block Hash">
                     <router-link :to="{ name: 'block', params: { hash: props.row.hash }}"
-                                 class="is-extra-large-hash text-truncate">{{ props.row.hash }}
+                                 class="is-hash text-truncate">{{ props.row.hash }}
                     </router-link>
                 </b-table-column>
             </template>
@@ -83,3 +83,21 @@
         }
     }
 </script>
+
+<style lang="sass" scoped>
+    @import "~bulma/sass/utilities/mixins"
+
+    +mobile
+        .is-hash
+            display: inline-block
+            max-width: 200px
+
+        .title small
+            font-size: 0.875rem
+
+    +from($tablet)
+        .is-hash
+            display: inline-block
+            max-width: 240px
+</style>
+

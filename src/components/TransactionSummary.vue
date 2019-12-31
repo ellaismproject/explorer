@@ -6,7 +6,7 @@
             <template slot-scope="props">
                 <b-table-column field="hash" label="Hash">
                     <router-link :to="{ name: 'transaction', params: { hash: props.row.hash }}"
-                                 class="is-large-hash text-truncate">{{ props.row.hash }}
+                                 class="is-hash text-truncate">{{ props.row.hash }}
                     </router-link>
                 </b-table-column>
                 <b-table-column field="timestamp" label="Age">
@@ -16,12 +16,12 @@
                 </b-table-column>
                 <b-table-column field="addressFrom" label="From">
                     <router-link :to="{ name: 'address', params: { hash: props.row.addressFrom }}"
-                                 class="is-medium-hash text-truncate">{{ props.row.addressFrom }}
+                                 class="is-hash text-truncate">{{ props.row.addressFrom }}
                     </router-link>
                 </b-table-column>
                 <b-table-column field="addressTo" label="To">
                     <router-link :to="{ name: 'address', params: { hash: props.row.addressTo }}"
-                                 class="is-medium-hash text-truncate">{{ props.row.addressTo }}
+                                 class="is-hash text-truncate">{{ props.row.addressTo }}
                     </router-link>
                 </b-table-column>
                 <b-table-column field="value" label="Value" numeric>
@@ -64,3 +64,17 @@
         }
     }
 </script>
+
+<style lang="sass" scoped>
+    @import "~bulma/sass/utilities/mixins"
+
+    +mobile
+        .is-hash
+            display: inline-block
+            max-width: 200px
+
+    +from($tablet)
+        .is-hash
+            display: inline-block
+            max-width: 240px
+</style>
