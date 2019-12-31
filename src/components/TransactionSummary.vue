@@ -4,7 +4,7 @@
         <b-table class="is-striped is-hoverable is-fullwidth" :data="syncedTransactions" paginated backend-pagination
                  @page-change="pageChange" :total="syncedTotal" :per-page="syncedPerPage" icon-pack="fas">
             <template slot-scope="props">
-                <b-table-column field="hash" label="Transaction Hash">
+                <b-table-column field="hash" label="Hash">
                     <router-link :to="{ name: 'transaction', params: { hash: props.row.hash }}"
                                  class="is-large-hash text-truncate">{{ props.row.hash }}
                     </router-link>
