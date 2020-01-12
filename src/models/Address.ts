@@ -7,4 +7,5 @@ export default class Address {
     public blocksMined: number | null = null;
     public transactionCount: number | null = null;
     public timestamp: number | null = null;
+    public balanceHistory: { [key: string]: number } | null = null;
 }

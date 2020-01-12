@@ -1,6 +1,6 @@
 {
   "ellaism": "Ellaism",
-  "currency_ella": "{amount} ELLA",
+  "currency_ella": "{operator}{amount} ELLA",
   "latest_blocks": "Latest Blocks",
   "page": {
     "default": {
@@ -61,7 +61,19 @@
     }
   },
   "footer": {
-    "copyright": "{symbol} @:ellaism Project {year} Released under the MIT license",
+    "copyright": "{symbol} {year} @:ellaism Project",
+    "price_statement": "Price data provided by @:vendor.coingecko",
     "network_status": "Network Status"
+  },
+  "stats": {
+    "block_height": "Block Height",
+    "block_time": "Avg. Block Time",
+    "network_hashrate": "Network Hashrate",
+    "difficulty": "Difficulty",
+    "btc_price": "BTC Price",
+    "ghs": "{amount} GH/s"
+  },
+  "vendor": {
+    "coingecko": "CoinGecko"
   }
 }

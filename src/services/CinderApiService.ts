@@ -6,6 +6,8 @@ import SearchResult from '@/models/SearchResult';
 import PagedResult from '@/paging/PagedResult';
 import {SortType} from '@/models/SortType';
 import Richest from '@/models/Richest';
+import NetInfo from '@/models/NetInfo';
+import Price from '@/models/Price';
 
 interface ICinderApiService {
     getAddressByHash(hash: string): Promise<Address>;
@@ -28,6 +30,12 @@ interface ICinderApiService {
     getRecentTransactionsByAddressHash(hash: string, size: number | null): Promise<Transaction[]>;
 
     search(query: string): Promise<SearchResult>;
+
+    getRichest(page: number | null, size: number | null): Promise<PagedResult<Richest>>;
+
+    getNetInfo(): Promise<NetInfo>;
+
+    getPrice(): Promise<Price>;
 }
 
 export default class CinderApiService implements ICinderApiService {
@@ -119,6 +127,20 @@ export default class CinderApiService implements ICinderApiService {
 
     public async getRichest(page: number | null, size: number | null): Promise<PagedResult<Richest>> {
         const url: string = `${this.baseUrl}/v1/stats/richest?page=${page}&size=${size}`;
+        const response = await this.client.get(url);
+
+        return response.data;
+    }
+
+    public async getNetInfo(): Promise<NetInfo> {
+        const url: string = `${this.baseUrl}/v1/stats/netinfo`;
+        const response = await this.client.get(url);
+
+        return response.data;
+    }
+
+    public async getPrice(): Promise<Price> {
+        const url: string = `${this.baseUrl}/v1/stats/price`;
         const response = await this.client.get(url);
 
         return response.data;

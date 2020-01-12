@@ -4,4 +4,5 @@ export default class Richest {
     public tags: string[] | null = null;
     public hash: string | null = null;
     public balance: number | null = null;
+    public balanceHistory: { [key: string]: number } | null = null;
 }

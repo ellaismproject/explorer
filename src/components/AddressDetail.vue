@@ -18,6 +18,18 @@
                     <small class="is-block has-text-grey">{{balanceCacheMessage}}</small>
                 </td>
             </tr>
+            <tr>
+                <th width="15%">7 Day Change</th>
+                <td>
+                    <BalanceHistory type="7" :balance="syncedAddress.balance" :history="syncedAddress.balanceHistory"/>
+                </td>
+            </tr>
+            <tr>
+                <th width="15%">30 Day Change</th>
+                <td>
+                    <BalanceHistory type="30" :balance="syncedAddress.balance" :history="syncedAddress.balanceHistory"/>
+                </td>
+            </tr>
             <tr v-if="hasTags">
                 <th width="15%">Tags</th>
                 <td>
@@ -44,9 +56,10 @@
     import Address from '@/models/Address';
     import moment from 'moment';
     import CurrencyElla from '@/components/CurrencyElla.vue';
+    import BalanceHistory from '@/components/BalanceHistory.vue';
 
     @Component({
-        components: {CurrencyElla},
+        components: {CurrencyElla, BalanceHistory},
     })
     export default class AddressDetail extends Vue {
         @PropSync('address')

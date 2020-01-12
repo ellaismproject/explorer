@@ -22,6 +22,12 @@
                 <b-table-column field="balance" label="Balance" numeric>
                     <CurrencyElla :balance="props.row.balance" format="crypto"/>
                 </b-table-column>
+                <b-table-column field="balanceHistory" label="7 Day Change" numeric>
+                    <BalanceHistory type="7" :balance="props.row.balance" :history="props.row.balanceHistory"/>
+                </b-table-column>
+                <b-table-column field="balanceHistory" label="30 Day Change" numeric>
+                    <BalanceHistory type="30" :balance="props.row.balance" :history="props.row.balanceHistory"/>
+                </b-table-column>
             </template>
             <template slot="empty">
                 <section class="section">
@@ -43,9 +49,10 @@
     import Richest from '@/models/Richest';
     import {MetaInfo} from 'vue-meta';
     import CurrencyElla from '@/components/CurrencyElla.vue';
+    import BalanceHistory from '@/components/BalanceHistory.vue';
 
     @Component({
-        components: {CurrencyElla},
+        components: {CurrencyElla, BalanceHistory},
         metaInfo(): MetaInfo {
             return {
                 title: this.$t('page.richest.meta_title').toString(),

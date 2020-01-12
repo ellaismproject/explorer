@@ -14,6 +14,10 @@ const numberFormats = {
             style: 'decimal',
             maximumFractionDigits: 18,
         },
+        decimalShort: {
+            style: 'decimal',
+            maximumFractionDigits: 2,
+        },
     },
 };
 

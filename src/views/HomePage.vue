@@ -1,6 +1,7 @@
 <template>
     <div class="page home-page">
         <b-loading :is-full-page="false" :active.sync="isLoading"/>
+        <Stats/>
         <h1 class="title is-4 is-spaced">{{ $t('page.home.title') }}</h1>
         <b-table class="is-striped is-hoverable is-fullwidth" :data="blocks" paginated backend-pagination
                  @page-change="onPageChange" :total="total" :per-page="perPage" icon-pack="fas">
@@ -50,8 +51,22 @@
     import Block from '@/models/Block';
     import CinderApiService from '@/services/CinderApiService';
     import {SortType} from '@/models/SortType';
+    import Stats from '@/components/Stats.vue';
+    import {MetaInfo} from 'vue-meta';
 
-    @Component({})
+    @Component({
+        components: {Stats},
+        metaInfo(): MetaInfo {
+            return {
+                meta: [
+                    {
+                        name: 'description',
+                        content: 'The Ellaism.io Explorer provides block, transaction, and address data for the Ellaism (ELLA) chain. The data is displayed within an awesome interface and is available in several different languages.'
+                    }
+                ]
+            };
+        },
+    })
     export default class HomePage extends Vue {
         public currentPage: number = 1;
         public perPage: number = 20;
