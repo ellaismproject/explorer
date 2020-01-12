@@ -9,6 +9,9 @@
                             <span slot="year">{{year}}</span>
                         </i18n>
                     </div>
+                    <div class="level-item">
+                        <a href="https://www.coingecko.com" rel="nofollow">{{ $t('footer.price_statement') }}</a>
+                    </div>
                     <div class="level-right">
                         <a href="https://stats.ellascout.com">
                             <b-icon pack="fas" icon="circle" size="is-small"/>
