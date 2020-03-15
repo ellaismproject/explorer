@@ -22,6 +22,21 @@
                 <b-table-column field="balance" label="Balance" numeric>
                     <CurrencyElla :balance="props.row.balance" format="crypto"/>
                 </b-table-column>
+                <b-table-column field="percent" label="Percent" numeric>
+                    <i18n v-if="props.row.percent !== null" path="percent" tag="span">
+                        <span class="amount" slot="amount">
+                            <i18n-n :value="props.row.percent" format="decimalShort">
+                                <template v-slot:decimal="slotProps">
+                                    <span class="is-decimal">{{ slotProps.decimal }}</span>
+                                </template>
+                                <template v-slot:fraction="slotProps">
+                                    <span class="is-fraction">{{ slotProps.fraction }}</span>
+                                </template>
+                            </i18n-n>
+                        </span>
+                    </i18n>
+                    <span v-else>-</span>
+                </b-table-column>
                 <b-table-column field="balanceHistory" label="7 Day Change" numeric>
                     <BalanceHistory type="7" :balance="props.row.balance" :history="props.row.balanceHistory"/>
                 </b-table-column>

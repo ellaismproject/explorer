@@ -13,7 +13,12 @@
             <div>
                 <p class="heading">{{ $t('stats.block_time') }}</p>
                 <p class="title">
-                    <i18n-n v-if="netInfo !== null" :value="netInfo.averageBlockTime" format="decimalShort"/>
+                    <i18n v-if="netInfo !== null" path="stats.s" tag="span">
+                        <span class="amount" slot="amount">
+                            <i18n-n v-if="netInfo !== null" :value="netInfo.averageBlockTime" format="decimalShort"/>
+                            <span v-else>0</span>
+                        </span>
+                    </i18n>
                     <span v-else>0</span>
                 </p>
             </div>
@@ -23,9 +28,9 @@
                 <p class="heading">{{ $t('stats.network_hashrate') }}</p>
                 <p class="title">
                     <i18n v-if="netInfo !== null" path="stats.ghs" tag="span">
-                    <span class="amount" slot="amount">
-                        <i18n-n :value="netInfo.averageNetworkHashRate" format="decimalShort"/>
-                    </span>
+                        <span class="amount" slot="amount">
+                            <i18n-n :value="netInfo.averageNetworkHashRate" format="decimalShort"/>
+                        </span>
                     </i18n>
                     <span v-else>0</span>
                 </p>
@@ -35,10 +40,10 @@
             <div>
                 <p class="heading">{{ $t('stats.difficulty') }}</p>
                 <p class="title">
-                    <i18n v-if="netInfo !== null" path="stats.ghs" tag="span">
-                    <span class="amount" slot="amount">
-                        <i18n-n :value="netInfo.difficulty" format="decimalShort"/>
-                    </span>
+                    <i18n v-if="netInfo !== null" path="stats.gh" tag="span">
+                        <span class="amount" slot="amount">
+                            <i18n-n :value="netInfo.difficulty" format="decimalShort"/>
+                        </span>
                     </i18n>
                     <span v-else>0</span>
                 </p>

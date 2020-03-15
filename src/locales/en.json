@@ -1,6 +1,7 @@
 {
   "ellaism": "Ellaism",
   "currency_ella": "{operator}{amount} ELLA",
+  "percent": "{amount} %",
   "latest_blocks": "Latest Blocks",
   "page": {
     "default": {
@@ -71,7 +72,9 @@
     "network_hashrate": "Network Hashrate",
     "difficulty": "Difficulty",
     "btc_price": "BTC Price",
-    "ghs": "{amount} GH/s"
+    "ghs": "{amount} GH/s",
+    "gh": "{amount} GH",
+    "s": "{amount} s"
   },
   "vendor": {
     "coingecko": "CoinGecko"
