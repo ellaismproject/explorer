@@ -70,7 +70,7 @@
                     </b-navbar-item>
                 </b-navbar-dropdown>
             </template>
-            <template slot="end">
+            <template slot="end" v-if="searchEnabled">
                 <b-navbar-item tag="div">
                     <HeaderSearch/>
                 </b-navbar-item>
@@ -88,6 +88,9 @@
         components: {HeaderSearch, LocaleChanger},
     })
     export default class HeaderContent extends Vue {
+        public get searchEnabled() {
+            return process.env.VUE_APP_MAINTENANCE_ENABLED !== '1';
+        }
     }
 </script>
 

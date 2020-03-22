@@ -13,6 +13,11 @@
       "title": "Not Found",
       "sub_title": "The requested page was not found."
     },
+    "maintenance": {
+      "meta_title": "Undergoing Scheduled Maintenance",
+      "title": "Undergoing Scheduled Maintenance",
+      "sub_title": "The @:ellaism block explorer is undergoing scheduled maintenance."
+    },
     "home": {
       "title": "@:latest_blocks"
     },

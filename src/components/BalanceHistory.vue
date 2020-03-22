@@ -40,7 +40,7 @@
             return this.syncedBalance - this.syncedBalanceHistory[this.syncedType];
         }
 
-        get isPositive():boolean {
+        get isPositive(): boolean {
             return this.balanceDifference > 0;
         }
 

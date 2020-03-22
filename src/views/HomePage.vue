@@ -61,9 +61,9 @@
                 meta: [
                     {
                         name: 'description',
-                        content: 'The Ellaism.io Explorer provides block, transaction, and address data for the Ellaism (ELLA) chain. The data is displayed within an awesome interface and is available in several different languages.'
-                    }
-                ]
+                        content: 'The Ellaism.io Explorer provides block, transaction, and address data for the Ellaism (ELLA) chain. The data is displayed within an awesome interface and is available in several different languages.',
+                    },
+                ],
             };
         },
     })

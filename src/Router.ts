@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     linkExactActiveClass: 'is-active',
@@ -47,8 +47,13 @@ export default new Router({
             component: () => import(/* webpackChunkName: "pages" */ '@/views/RichestPage.vue'),
         },
         {
+            path: '/maintenance',
+            name: 'maintenance',
+            component: () => import(/* webpackChunkName: "pages" */ '@/views/MaintenancePage.vue'),
+        },
+        {
             path: '*',
-            component: () => import(/* webpackChunkName: "pages" */ './views/Error404Page.vue'),
+            component: () => import(/* webpackChunkName: "pages" */ './views/MaintenancePage.vue'),
         },
     ],
     scrollBehavior(to, from, savedPosition) {
@@ -59,3 +64,13 @@ export default new Router({
         }
     },
 });
+
+router.beforeEach((to, from, next) => {
+    if (process.env.VUE_APP_MAINTENANCE_ENABLED === '1' && to.name !== 'maintenance') {
+        next({name: 'maintenance'});
+    } else {
+        next();
+    }
+});
+
+export default router;
