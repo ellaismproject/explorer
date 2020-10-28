@@ -94,18 +94,9 @@ export default {
    ** See https://axios.nuxtjs.org/
    */
   axios: {
+    proxy: true,
     // Used as fallback if no runtime config is provided
     baseURL: 'http://localhost:3000',
-  },
-  publicRuntimeConfig: {
-    axios: {
-      browserBaseURL: process.env.BROWSER_BASE_URL,
-    },
-  },
-  privateRuntimeConfig: {
-    axios: {
-      baseURL: process.env.BASE_URL,
-    },
   },
   /*
    ** nuxt-i18n
@@ -170,4 +161,18 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
+  /*
+   ** Runtime Config
+   ** See https://nuxtjs.org/guide/runtime-config#runtime-config-213
+   */
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL,
+    },
+  },
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL,
+    },
+  },
 }
