@@ -1,4 +1,4 @@
-name: Cinder UI
+name: Ellaism Explorer
 
 on:
   push:
@@ -14,7 +14,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: cinder-ui
+  IMAGE_NAME: ellaism-explorer
   DOCKER_FILE: Dockerfile
 
 jobs:
