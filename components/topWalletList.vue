@@ -1,6 +1,6 @@
 <template>
   <div>
-    <block-list-table
+    <top-wallet-list-table
       :items="items"
       :paginated="paginated"
       loader
@@ -12,25 +12,23 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 import {
-  BLOCK_LIST,
-  BLOCK_MODULE_NAMESPACE,
-  FETCH_BLOCK_LIST,
-} from '@/store/block'
-import BlockListTable from '@/components/blockListTable'
+  FETCH_TOP_WALLET_LIST,
+  STAT_MODULE_NAMESPACE,
+  TOP_WALLET_LIST,
+} from '@/store/stat'
+import TopWalletListTable from '@/components/topWalletListTable'
 
 export default {
-  components: { BlockListTable },
+  components: { TopWalletListTable },
   props: {
     page: { type: Number, default: 1 },
     paginated: { type: Boolean, default: false },
     loader: { type: Boolean, default: false },
-    refresh: { type: Boolean, default: false },
-    refreshInterval: { type: Number, default: 15000 },
   },
   async fetch() {
     this.isLoading = true
     await this.$store.dispatch(
-      `${BLOCK_MODULE_NAMESPACE}/${FETCH_BLOCK_LIST}`,
+      `${STAT_MODULE_NAMESPACE}/${FETCH_TOP_WALLET_LIST}`,
       { page: this.$props.page }
     )
     this.isLoading = false
@@ -39,12 +37,11 @@ export default {
     return {
       currentPage: 1,
       isLoading: false,
-      fetchBlockTask: null,
     }
   },
   computed: {
-    ...mapState(BLOCK_MODULE_NAMESPACE, {
-      items: BLOCK_LIST,
+    ...mapState(STAT_MODULE_NAMESPACE, {
+      items: TOP_WALLET_LIST,
     }),
   },
   watch: {
@@ -55,21 +52,9 @@ export default {
       this.isLoading = false
     },
   },
-  mounted() {
-    if (this.refresh) {
-      this.fetchBlockTask = setInterval(() => {
-        this.fetchList({ page: this.currentPage })
-      }, this.refreshInterval)
-    }
-  },
-  beforeDestroy() {
-    if (this.fetchBlockTask !== null) {
-      clearInterval(this.fetchBlockTask)
-    }
-  },
   methods: {
-    ...mapActions(BLOCK_MODULE_NAMESPACE, {
-      fetchList: FETCH_BLOCK_LIST,
+    ...mapActions(STAT_MODULE_NAMESPACE, {
+      fetchList: FETCH_TOP_WALLET_LIST,
     }),
   },
 }

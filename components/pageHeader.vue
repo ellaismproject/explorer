@@ -1,7 +1,7 @@
 <template>
   <div class="mb-4 d-flex justify-content-between">
     <div class="d-flex flex">
-      <h1>{{ $t(titleKey) }}</h1>
+      <h1 class="h2">{{ $t(titleKey) }}</h1>
     </div>
     <net-info-list class="d-flex align-items-center text-muted" />
   </div>

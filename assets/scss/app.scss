@@ -1,6 +1,10 @@
 @import "variables";
 @import "custom/vendors";
 
+body {
+  cursor: default;
+}
+
 .page-section {
   background-color: #ffffff;
   padding-top: 1.25rem;

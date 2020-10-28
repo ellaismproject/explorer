@@ -44,7 +44,6 @@ export default {
 
 <style lang="scss" scoped>
 .net-info-list /deep/ .list-group-item {
-  background-color: #fafbfe;
   border: none;
   font-size: 0.8275rem;
 }

@@ -129,6 +129,10 @@ export default {
             style: 'currency',
             currency: 'USD',
           },
+          currency: {
+            style: 'currency',
+            currency: 'USD',
+          },
         },
       },
     },

@@ -8,7 +8,7 @@
 export default {
   head() {
     return {
-      title: this.$t('page.richest.metaTitle'),
+      title: this.$t('page.top_wallets.metaTitle'),
     }
   },
 }

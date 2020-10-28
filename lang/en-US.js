@@ -3,7 +3,7 @@ export default {
   currency_ella: '{operator}{amount} ELLA',
   percent: '{amount} %',
   blocks: 'Blocks',
-  latestBlocks: 'Latest blocks',
+  latestBlocks: 'Latest Blocks',
   unknownMiner: 'Unknown',
   page: {
     error404: {
@@ -17,13 +17,17 @@ export default {
       sub_title:
         'The @:ellaism block explorer is undergoing scheduled maintenance.',
     },
-    richest: {
-      metaTitle: 'Rich List',
-      title: 'Rich List',
+    top_wallets: {
+      metaTitle: 'Top Wallets',
+      title: 'Top Wallets',
     },
     address: {
       metaTitle: 'Address',
-      title: 'Address',
+      title: 'Address Summary',
+    },
+    addressTransactions: {
+      metaTitle: 'Address Transactions',
+      title: 'Transactions',
     },
     block: {
       metaTitle: 'Block',
@@ -39,29 +43,31 @@ export default {
     },
   },
   navigation: {
+    index: 'Home',
     latest_blocks: '@:latest_blocks',
     stats: 'Blockchain Stats',
-    richest: 'Rich List',
-    resource: 'Resources',
-    resource_subnav: {
-      official: 'Official',
+    top_wallets: 'Top Wallets',
+    resources: 'Resources',
+    resources_subnav: {
       website: '@:ellaism Website',
       network_status: 'Network Status',
       github: '@:ellaism GitHub',
-      community: 'Community',
+    },
+    social: 'Social',
+    social_subnav: {
       discord: 'Discord',
       reddit: 'Reddit',
       telegram: 'Telegram',
       twitter: 'Twitter',
     },
     search: {
-      placeholder: 'Lookup blocks, transactions, hash...',
+      placeholder: 'Find a block, transaction or address',
       button: 'Search',
     },
   },
   footer: {
     copyright: '{symbol} {year} {name}',
-    version: 'Cinder UI v{version}',
+    version: 'v{version}',
     price_statement: 'Price data provided by @:vendor.coingecko',
     network_status: 'Network Status',
   },

@@ -1,7 +1,7 @@
 <template>
-  <div class="block-list-table">
+  <div class="wallet-list-table">
     <b-table
-      id="block-list-table"
+      id="wallet-list-table"
       :fields="fields"
       :items="items"
       primary-key="hash"
@@ -15,40 +15,40 @@
       responsive
     >
       <template v-slot:cell(hash)="row">
-        <span v-b-tooltip.hover :title="row.item.hash">
+        <span
+          v-b-tooltip.hover
+          :title="row.item.hash"
+          :disabled="!row.item.name"
+        >
           <b-link
             :to="
               localePath({
-                name: 'block-hash',
+                name: 'address-hash',
                 params: { hash: row.item.hash },
               })
             "
-            >{{ formatHash(row.item.hash) }}</b-link
           >
+            <span v-if="row.item.name">{{ row.item.name }}</span>
+            <span v-else>{{ row.item.hash }}</span>
+          </b-link>
         </span>
-      </template>
-      <template v-slot:cell(blockNumber)="row">
-        <i18n-n :value="parseInt(row.item.blockNumber)" />
-      </template>
-      <template v-slot:cell(timestamp)="row">
-        {{ $d($moment.unix(row.item.timestamp).toDate(), 'long') }}
-      </template>
-      <template v-slot:cell(minerDisplay)="row">
-        <span v-b-tooltip.hover :title="row.item.miner">
-          <b-link
-            :to="{
-              name: 'address-hash',
-              params: { hash: row.item.miner },
-            }"
-            >{{ row.item.minerDisplay || $t('unknownMiner') }}</b-link
+        <div v-if="row.item.tags.length > 0" class="d-inline-block">
+          <b-badge
+            v-for="tag in row.item.tags"
+            :key="tag"
+            pill
+            variant="primary"
+            class="ml-2"
           >
-        </span>
+            {{ tag }}
+          </b-badge>
+        </div>
       </template>
-      <template v-slot:cell(value)="row">
-        <balance-currency-tooltip :balance="row.item.value" />
+      <template v-slot:cell(balance)="row">
+        <balance-currency-tooltip :balance="row.item.balance" />
       </template>
-      <template v-slot:cell(fees)="row">
-        <balance-currency-tooltip :balance="row.item.fees" />
+      <template v-slot:cell(percent)="row">
+        {{ `${$n(row.item.percent)}%` }}
       </template>
       <template v-slot:table-busy>
         <b-spinner class="d-block m-auto" type="grow" variant="primary" />
@@ -60,7 +60,7 @@
         :disabled="isBusy"
         :link-gen="linkGen"
         :number-of-pages="pages"
-        aria-controls="block-list-table"
+        aria-controls="wallet-list-table"
         align="center"
         use-router
       />
@@ -70,7 +70,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { BLOCK_LIST_PAGINATION, BLOCK_MODULE_NAMESPACE } from '@/store/block'
+import { TOP_WALLET_LIST_PAGINATION, STAT_MODULE_NAMESPACE } from '@/store/stat'
 import BalanceCurrencyTooltip from '@/components/balanceCurrencyTooltip'
 
 export default {
@@ -99,54 +99,35 @@ export default {
     return {
       fields: [
         {
+          key: 'rank',
+          label: 'Rank',
+          sortable: true,
+        },
+        {
           key: 'hash',
-          label: 'ID',
+          label: 'Address',
           sortable: true,
         },
         {
-          key: 'blockNumber',
-          label: 'Height',
-          sortable: true,
-          sortDirection: 'desc',
-        },
-        {
-          key: 'timestamp',
-          label: 'Timestamp',
-          sortable: true,
-        },
-        {
-          key: 'transactionCount',
-          label: 'Transactions',
+          key: 'balance',
+          label: 'Balance',
           sortable: true,
           class: 'text-right',
         },
         {
-          key: 'minerDisplay',
-          label: 'Miner',
-          sortable: true,
-          class: 'text-right',
-        },
-        {
-          key: 'value',
-          label: 'Total Mined',
-          sortable: true,
-          class: 'text-right',
-        },
-        {
-          key: 'fees',
-          label: 'Fees',
-          sortable: true,
+          key: 'percent',
+          label: 'Supply',
+          sortable: false,
           class: 'text-right',
         },
       ],
-      sortBy: 'blockNumber',
-      sortDesc: true,
-      fetchBlockTask: null,
+      sortBy: 'rank',
+      sortDesc: false,
     }
   },
   computed: {
-    ...mapState(BLOCK_MODULE_NAMESPACE, {
-      pagination: BLOCK_LIST_PAGINATION,
+    ...mapState(STAT_MODULE_NAMESPACE, {
+      pagination: TOP_WALLET_LIST_PAGINATION,
     }),
     isBusy() {
       return this.loader && this.isLoading
@@ -166,17 +147,9 @@ export default {
     },
   },
   methods: {
-    formatHash(hash) {
-      const length = hash.length
-      if (length <= 10) {
-        return hash
-      }
-
-      return `${hash.substr(0, 5)}...${hash.substr(length - 5, length - 1)}`
-    },
     linkGen(page) {
       return {
-        name: 'blocks-page',
+        name: 'top-wallets-page',
         params: { page },
       }
     },
@@ -185,7 +158,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.block-list-table /deep/ .b-table-busy-slot {
+.wallet-list-table /deep/ .b-table-busy-slot {
   background-color: #ffffff;
   padding: 1.5rem;
 }

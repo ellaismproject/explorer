@@ -15,10 +15,14 @@ export const state = () => ({
   [BLOCK_LIST_PAGINATION]: DEFAULT_PAGINATION,
 })
 
+export const SET_BLOCK = 'setBlock'
 export const SET_BLOCK_LIST = 'setBlockList'
 export const SET_BLOCK_LIST_PAGINATION = 'setBlockListPagination'
 
 export const mutations = {
+  [SET_BLOCK](state, block) {
+    state[BLOCK] = block
+  },
   [SET_BLOCK_LIST](state, list) {
     state[BLOCK_LIST] = list
   },
@@ -27,16 +31,21 @@ export const mutations = {
   },
 }
 
+export const FETCH_BLOCK = 'loadBlock'
 export const FETCH_BLOCK_LIST = 'loadBlockList'
 
 export const actions = {
+  async [FETCH_BLOCK]({ commit, state }, payload) {
+    const response = await this.$axios.get(`/api/block/${payload.hash}`)
+
+    commit(SET_BLOCK, response.data)
+  },
   async [FETCH_BLOCK_LIST]({ commit, state }, payload) {
     const response = await this.$axios.get('/api/block', {
       params: {
-        page: state[BLOCK_LIST_PAGINATION].page,
-        size: state[BLOCK_LIST_PAGINATION].size,
+        page: payload?.page || state[BLOCK_LIST_PAGINATION].page,
+        size: payload?.size || state[BLOCK_LIST_PAGINATION].size,
         sort: 1,
-        ...payload,
       },
     })
 

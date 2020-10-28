@@ -1,7 +1,7 @@
 <template>
-  <div class="block-list-table">
+  <div class="transaction-list-table">
     <b-table
-      id="block-list-table"
+      id="transaction-list-table"
       :fields="fields"
       :items="items"
       primary-key="hash"
@@ -19,7 +19,7 @@
           <b-link
             :to="
               localePath({
-                name: 'block-hash',
+                name: 'transaction-hash',
                 params: { hash: row.item.hash },
               })
             "
@@ -27,40 +27,53 @@
           >
         </span>
       </template>
-      <template v-slot:cell(blockNumber)="row">
-        <i18n-n :value="parseInt(row.item.blockNumber)" />
-      </template>
       <template v-slot:cell(timestamp)="row">
         {{ $d($moment.unix(row.item.timestamp).toDate(), 'long') }}
       </template>
-      <template v-slot:cell(minerDisplay)="row">
-        <span v-b-tooltip.hover :title="row.item.miner">
+
+      <template v-slot:cell(addressFrom)="row">
+        <span v-b-tooltip.hover :title="row.item.addressFrom">
           <b-link
-            :to="{
-              name: 'address-hash',
-              params: { hash: row.item.miner },
-            }"
-            >{{ row.item.minerDisplay || $t('unknownMiner') }}</b-link
+            :to="
+              localePath({
+                name: 'address-hash',
+                params: { hash: row.item.addressFrom },
+              })
+            "
+            >{{ formatHash(row.item.addressFrom) }}</b-link
+          >
+        </span>
+      </template>
+      <template v-slot:cell(addressTo)="row">
+        <span v-b-tooltip.hover :title="row.item.addressTo">
+          <b-link
+            :to="
+              localePath({
+                name: 'address-hash',
+                params: { hash: row.item.addressTo },
+              })
+            "
+            >{{ formatHash(row.item.addressTo) }}</b-link
           >
         </span>
       </template>
       <template v-slot:cell(value)="row">
         <balance-currency-tooltip :balance="row.item.value" />
       </template>
-      <template v-slot:cell(fees)="row">
-        <balance-currency-tooltip :balance="row.item.fees" />
-      </template>
       <template v-slot:table-busy>
         <b-spinner class="d-block m-auto" type="grow" variant="primary" />
       </template>
     </b-table>
-    <div v-if="paginated" class="mt-5">
+    <div
+      v-if="paginated && pagination !== null && routeName !== null"
+      class="mt-5"
+    >
       <b-pagination-nav
         v-model="page"
         :disabled="isBusy"
         :link-gen="linkGen"
         :number-of-pages="pages"
-        aria-controls="block-list-table"
+        aria-controls="transaction-list-table"
         align="center"
         use-router
       />
@@ -69,8 +82,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { BLOCK_LIST_PAGINATION, BLOCK_MODULE_NAMESPACE } from '@/store/block'
 import BalanceCurrencyTooltip from '@/components/balanceCurrencyTooltip'
 
 export default {
@@ -94,6 +105,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    pagination: {
+      type: Object,
+      default: null,
+    },
+    routeName: {
+      type: String,
+      default: null,
+    },
+    routeParams: {
+      type: Object,
+      default: () => {},
+    },
   },
   data() {
     return {
@@ -104,50 +127,32 @@ export default {
           sortable: true,
         },
         {
-          key: 'blockNumber',
-          label: 'Height',
-          sortable: true,
-          sortDirection: 'desc',
-        },
-        {
           key: 'timestamp',
           label: 'Timestamp',
           sortable: true,
         },
         {
-          key: 'transactionCount',
-          label: 'Transactions',
+          key: 'addressFrom',
+          label: 'Sender',
           sortable: true,
-          class: 'text-right',
         },
         {
-          key: 'minerDisplay',
-          label: 'Miner',
-          sortable: true,
-          class: 'text-right',
+          key: 'addressTo',
+          label: 'Recipient',
+          sortable: false,
         },
         {
           key: 'value',
-          label: 'Total Mined',
-          sortable: true,
-          class: 'text-right',
-        },
-        {
-          key: 'fees',
-          label: 'Fees',
-          sortable: true,
+          label: 'Value',
+          sortable: false,
           class: 'text-right',
         },
       ],
-      sortBy: 'blockNumber',
-      sortDesc: true,
-      fetchBlockTask: null,
+      sortBy: 'rank',
+      sortDesc: false,
     }
   },
   computed: {
-    ...mapState(BLOCK_MODULE_NAMESPACE, {
-      pagination: BLOCK_LIST_PAGINATION,
-    }),
     isBusy() {
       return this.loader && this.isLoading
     },
@@ -176,8 +181,8 @@ export default {
     },
     linkGen(page) {
       return {
-        name: 'blocks-page',
-        params: { page },
+        name: this.routeName,
+        params: { ...this.routeParams, page },
       }
     },
   },
@@ -185,7 +190,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.block-list-table /deep/ .b-table-busy-slot {
+.transaction-list-table /deep/ .b-table-busy-slot {
   background-color: #ffffff;
   padding: 1.5rem;
 }

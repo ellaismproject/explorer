@@ -6,9 +6,11 @@
           <i18n path="footer.copyright">
             <span slot="symbol">&copy;</span>
             <span slot="year">{{ year }}</span>
-            <span slot="name"
-              ><a href="https://ellaism.io">{{ $t('ellaism') }}</a></span
-            >
+            <span slot="name">
+              <a href="https://ellaism.io">
+                {{ $t('ellaism') }}
+              </a>
+            </span>
           </i18n>
         </li>
         <li class="list-inline-item">
