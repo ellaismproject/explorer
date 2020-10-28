@@ -1,24 +1,30 @@
-# ![Ellaism](doc/logo.png) Cinder UI (Vue.js)
+# Ellaism Explorer
 
-Vue.js user interface for [Cinder](https://github.com/ellaismproject/Cinder).
+> A blockchain explorer for Ellaism using NuxtJS and BootstrapVue.
 
-![GitHub](https://img.shields.io/github/license/ellaismproject/Cinder)
+![GitHub](https://img.shields.io/github/license/majordutch/cinder-ui)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
-## Project setup
-```
-npm install
+You can access it at [https://explorer.ellaism.io](https://explorer.ellaism.io).
+
+## Build Setup
+
+```bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 ## Contributing to this project
 

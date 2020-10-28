@@ -1,0 +1,18 @@
+@import "variables";
+@import "custom/vendors";
+
+body {
+  cursor: default;
+}
+
+.page-section {
+  background-color: #ffffff;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  box-shadow: rgba(203, 208, 228, 0.19) 0 1px 9px 0;
+
+  @include media-breakpoint-up(sm) {
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+  }
+}
