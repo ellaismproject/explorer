@@ -155,8 +155,9 @@ export default {
       return this.block.hash
     },
     confirmations() {
-      const number = parseInt(this.block.blockNumber)
-      return this.netInfo.bestBlock - number
+      let number = parseInt(this.transaction.blockNumber)
+      number = this.netInfo.bestBlock - number
+      return this.$n(number > 0 ? number : 0)
     },
     transactionCount() {
       return this.block.transactionCount

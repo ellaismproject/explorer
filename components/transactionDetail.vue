@@ -104,8 +104,9 @@ export default {
       return this.$n(parseInt(this.transaction.blockNumber))
     },
     confirmations() {
-      const number = parseInt(this.transaction.blockNumber)
-      return this.$n(this.netInfo.bestBlock - number)
+      let number = parseInt(this.transaction.blockNumber)
+      number = this.netInfo.bestBlock - number
+      return this.$n(number > 0 ? number : 0)
     },
     sender() {
       return this.transaction.addressFrom
