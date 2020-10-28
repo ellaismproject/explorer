@@ -90,6 +90,24 @@ export default {
     'nuxt-i18n',
   ],
   /*
+   ** nuxt/axios
+   ** See https://axios.nuxtjs.org/
+   */
+  axios: {
+    // Used as fallback if no runtime config is provided
+    baseURL: 'http://localhost:3000',
+  },
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL,
+    },
+  },
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL,
+    },
+  },
+  /*
    ** nuxt-i18n
    ** See https://nuxt-community.github.io/nuxt-i18n/options-reference.html
    ** See https://kazupon.github.io/vue-i18n/api/#constructor-options
