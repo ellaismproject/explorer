@@ -68,6 +68,14 @@ export default {
           route.name = 'transaction-hash'
           break
         default:
+          this.$bvToast.toast('No results found, please try again.', {
+            title: 'Search Error',
+            toaster: 'b-toaster-bottom-center',
+            variant: 'danger',
+            solid: true,
+          })
+          this.term = ''
+          this.isBusy = false
           return
       }
 
