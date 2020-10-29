@@ -6,22 +6,22 @@
     </div>
     <section class="page-section rounded">
       <div v-if="$fetchState.pending">
-        <div class="px-5">
+        <div class="px-3 px-md-5">
           <b-spinner class="d-block m-auto" type="grow" variant="primary" />
         </div>
       </div>
       <div v-else>
-        <b-list-group class="px-5">
+        <b-list-group class="px-3 px-md-5">
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Name</div>
-              <div>{{ name }}</div>
+              <div class="mr-4 text-nowrap">Name</div>
+              <div class="d-block text-truncate">{{ name }}</div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Website</div>
-              <div>
+              <div class="mr-4 text-nowrap">Website</div>
+              <div class="d-block text-truncate">
                 <a :href="website" target="_blank" rel="nofollow">{{
                   website
                 }}</a>
@@ -30,13 +30,13 @@
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Blocks Mined</div>
-              <div>{{ $n(blocksMined) }}</div>
+              <div class="mr-4 text-nowrap">Blocks Mined</div>
+              <div class="d-block text-truncate">{{ $n(blocksMined) }}</div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Tags</div>
+              <div class="mr-4 text-nowrap">Tags</div>
               <div>
                 <b-badge
                   v-for="tag in tags"

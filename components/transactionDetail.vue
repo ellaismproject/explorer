@@ -1,10 +1,10 @@
 <template>
   <div>
-    <b-list-group class="px-5">
+    <b-list-group class="px-3 px-md-5">
       <b-list-group-item class="flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <div class="mr-4">Sender</div>
-          <div>
+          <div class="mr-4 text-nowrap">Sender</div>
+          <div class="d-block text-truncate">
             <b-link
               :to="
                 localePath({
@@ -19,8 +19,8 @@
       </b-list-group-item>
       <b-list-group-item class="flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <div class="mr-4">Recipient</div>
-          <div>
+          <div class="mr-4 text-nowrap">Recipient</div>
+          <div class="d-block text-truncate">
             <b-link
               :to="
                 localePath({
@@ -35,38 +35,40 @@
       </b-list-group-item>
       <b-list-group-item class="flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <div class="mr-4">Confirmations</div>
-          <div>{{ confirmations }}</div>
+          <div class="mr-4 text-nowrap">Confirmations</div>
+          <div class="d-block text-truncate">{{ confirmations }}</div>
         </div>
       </b-list-group-item>
       <b-list-group-item class="flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <div class="mr-4">Height</div>
-          <div>{{ height }}</div>
+          <div class="mr-4 text-nowrap">Height</div>
+          <div class="d-block text-truncate">{{ height }}</div>
         </div>
       </b-list-group-item>
       <b-list-group-item class="flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <div class="mr-4">Timestamp</div>
-          <div>{{ timestamp }}</div>
+          <div class="mr-4 text-nowrap">Timestamp</div>
+          <div class="d-block text-truncate">{{ timestamp }}</div>
         </div>
       </b-list-group-item>
       <b-list-group-item class="flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <div class="mr-4">Value</div>
-          <div><balance-currency-tooltip :balance="value" /></div>
+          <div class="mr-4 text-nowrap">Value</div>
+          <div class="d-block text-truncate">
+            <balance-currency-tooltip :balance="value" />
+          </div>
         </div>
       </b-list-group-item>
       <b-list-group-item class="flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <div class="mr-4">Nonce</div>
-          <div>{{ nonce }}</div>
+          <div class="mr-4 text-nowrap">Nonce</div>
+          <div class="d-block text-truncate">{{ nonce }}</div>
         </div>
       </b-list-group-item>
       <b-list-group-item class="flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <div class="mr-4">Block ID</div>
-          <div>
+          <div class="mr-4 text-nowrap">Block ID</div>
+          <div class="d-block text-truncate">
             <b-link
               :to="
                 localePath({

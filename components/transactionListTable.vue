@@ -145,7 +145,7 @@ export default {
           key: 'value',
           label: 'Value',
           sortable: false,
-          class: 'text-right',
+          class: 'text-md-right',
         },
       ],
       sortBy: 'rank',

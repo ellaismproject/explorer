@@ -1,6 +1,6 @@
 <template>
   <section
-    class="bg-dark px-5 py-4 rounded mb-4 d-flex justify-content-between"
+    class="bg-dark px-3 px-md-5 py-2 py-4 rounded mb-4 d-flex justify-content-between"
   >
     <div class="flex-column">
       <div class="text-muted">Block ID</div>

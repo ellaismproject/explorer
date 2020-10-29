@@ -6,49 +6,49 @@
     </div>
     <section class="page-section rounded">
       <div v-if="$fetchState.pending">
-        <div class="px-5">
+        <div class="px-3 px-md-5">
           <b-spinner class="d-block m-auto" type="grow" variant="primary" />
         </div>
       </div>
       <div v-else>
-        <b-list-group class="px-5">
+        <b-list-group class="px-3 px-md-5">
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Transactions</div>
-              <div>{{ $n(transactionCount) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Confirmations</div>
-              <div>{{ $n(confirmations) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Height</div>
-              <div>{{ $n(block.blockNumber) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Timestamp</div>
-              <div>
-                {{ $d($moment.unix(block.timestamp).toDate(), 'long') }}
+              <div class="mr-4 text-nowrap">Transactions</div>
+              <div class="d-block text-truncate">
+                {{ $n(transactionCount) }}
               </div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Miner</div>
-              <div>
-                <span v-b-tooltip.hover :title="block.miner">
+              <div class="mr-4 text-nowrap">Confirmations</div>
+              <div class="d-block text-truncate">{{ $n(confirmations) }}</div>
+            </div>
+          </b-list-group-item>
+          <b-list-group-item class="flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="mr-4 text-nowrap">Height</div>
+              <div class="d-block text-truncate">{{ $n(height) }}</div>
+            </div>
+          </b-list-group-item>
+          <b-list-group-item class="flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="mr-4 text-nowrap">Timestamp</div>
+              <div class="d-block text-truncate">{{ $d(timestamp) }}</div>
+            </div>
+          </b-list-group-item>
+          <b-list-group-item class="flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <div class="mr-4 text-nowrap">Miner</div>
+              <div class="d-block text-truncate">
+                <span v-b-tooltip.hover :title="miner">
                   <b-link
                     :to="{
                       name: 'address-hash',
-                      params: { hash: block.miner },
+                      params: { hash: miner },
                     }"
-                    >{{ block.minerDisplay || $t('unknownMiner') }}
+                    >{{ minerDisplay }}
                   </b-link>
                 </span>
               </div>
@@ -56,65 +56,67 @@
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Difficulty</div>
-              <div>{{ block.difficulty }}</div>
+              <div class="mr-4 text-nowrap">Difficulty</div>
+              <div class="d-block text-truncate">{{ $n(difficulty) }}</div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Total difficulty</div>
-              <div>{{ block.totalDifficulty }}</div>
+              <div class="mr-4 text-nowrap">Total difficulty</div>
+              <div class="d-block text-truncate">
+                {{ totalDifficultyFormatted }}
+              </div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Size</div>
-              <div>{{ block.size }}</div>
+              <div class="mr-4 text-nowrap">Size</div>
+              <div class="d-block text-truncate">{{ $n(size) }}</div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Gas Used</div>
-              <div>{{ block.gasUsed }}</div>
+              <div class="mr-4 text-nowrap">Gas Used</div>
+              <div class="d-block text-truncate">{{ $n(gasUsed) }}</div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Gas Limit</div>
-              <div>{{ block.gasLimit }}</div>
+              <div class="mr-4 text-nowrap">Gas Limit</div>
+              <div class="d-block text-truncate">{{ $n(gasLimit) }}</div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Extra Data</div>
-              <div>{{ block.extraData }}</div>
+              <div class="mr-4 text-nowrap">Extra Data</div>
+              <div class="d-block text-truncate">{{ extraData }}</div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Parent ID</div>
-              <div>
+              <div class="mr-4 text-nowrap">Parent ID</div>
+              <div class="d-block text-truncate">
                 <b-link
                   :to="{
                     name: 'block-hash',
-                    params: { hash: block.parentHash },
+                    params: { hash: parentHash },
                   }"
                 >
-                  {{ block.parentHash }}
+                  {{ parentHash }}
                 </b-link>
               </div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Sha3Uncles</div>
-              <div>{{ block.sha3Uncles }}</div>
+              <div class="mr-4 text-nowrap">Sha3Uncles</div>
+              <div class="d-block text-truncate">{{ sha3Uncles }}</div>
             </div>
           </b-list-group-item>
           <b-list-group-item class="flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4">Nonce</div>
-              <div>{{ block.nonce }}</div>
+              <div class="mr-4 text-nowrap">Nonce</div>
+              <div class="d-block text-truncate">{{ nonce }}</div>
             </div>
           </b-list-group-item>
         </b-list-group>
@@ -154,13 +156,57 @@ export default {
     hash() {
       return this.block.hash
     },
+    height() {
+      return parseInt(this.block.blockNumber)
+    },
     confirmations() {
       let number = parseInt(this.block.blockNumber)
       number = this.netInfo.bestBlock - number
-      return this.$n(number > 0 ? number : 0)
+      return number > 0 ? number : 0
     },
     transactionCount() {
       return this.block.transactionCount
+    },
+    timestamp() {
+      return this.$moment.unix(this.block.timestamp).toDate()
+    },
+    difficulty() {
+      return parseInt(this.block.difficulty)
+    },
+    totalDifficultyFormatted() {
+      const number = parseInt(this.block.totalDifficulty)
+      if (isNaN(number)) {
+        return this.block.totalDifficulty
+      }
+
+      return this.$n(number)
+    },
+    size() {
+      return parseInt(this.block.size)
+    },
+    gasUsed() {
+      return parseInt(this.block.gasUsed)
+    },
+    gasLimit() {
+      return parseInt(this.block.gasLimit)
+    },
+    extraData() {
+      return this.block.extraData
+    },
+    parentHash() {
+      return this.block.parentHash
+    },
+    sha3Uncles() {
+      return this.block.sha3Uncles
+    },
+    nonce() {
+      return this.block.nonce
+    },
+    miner() {
+      return this.block.miner
+    },
+    minerDisplay() {
+      return this.block.minerDisplay || this.$t('unknownMiner')
     },
   },
   watch: {

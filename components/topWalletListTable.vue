@@ -15,30 +15,32 @@
       responsive
     >
       <template v-slot:cell(hash)="row">
-        <span
-          v-b-tooltip.hover
-          :title="row.item.hash"
-          :disabled="!row.item.name"
-        >
-          <b-link
-            :to="
-              localePath({
-                name: 'address-hash',
-                params: { hash: row.item.hash },
-              })
-            "
+        <div class="text-truncate">
+          <span
+            v-b-tooltip.hover
+            :title="row.item.hash"
+            :disabled="!row.item.name"
           >
-            <span v-if="row.item.name">{{ row.item.name }}</span>
-            <span v-else>{{ row.item.hash }}</span>
-          </b-link>
-        </span>
+            <b-link
+              :to="
+                localePath({
+                  name: 'address-hash',
+                  params: { hash: row.item.hash },
+                })
+              "
+            >
+              <span v-if="row.item.name">{{ row.item.name }}</span>
+              <span v-else>{{ row.item.hash }}</span>
+            </b-link>
+          </span>
+        </div>
         <div v-if="row.item.tags.length > 0" class="d-inline-block">
           <b-badge
             v-for="tag in row.item.tags"
             :key="tag"
             pill
             variant="primary"
-            class="ml-2"
+            class="mr-2"
           >
             {{ tag }}
           </b-badge>
@@ -112,13 +114,13 @@ export default {
           key: 'balance',
           label: 'Balance',
           sortable: true,
-          class: 'text-right',
+          class: 'text-md-right',
         },
         {
           key: 'percent',
           label: 'Supply',
           sortable: false,
-          class: 'text-right',
+          class: 'text-md-right',
         },
       ],
       sortBy: 'rank',
