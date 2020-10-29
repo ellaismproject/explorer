@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <b-container>
     <page-header title-key="latestBlocks" />
     <section class="page-section rounded">
       <block-list refresh />
@@ -11,7 +11,7 @@
         >
       </div>
     </section>
-  </div>
+  </b-container>
 </template>
 
 <script>

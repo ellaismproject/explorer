@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <top-wallet-list-table
-      :items="items"
-      :paginated="paginated"
-      loader
-      :is-loading="isLoading"
-    />
-  </div>
+  <top-wallet-list-table
+    :items="items"
+    :paginated="paginated"
+    loader
+    :is-loading="isLoading"
+  />
 </template>
 
 <script>

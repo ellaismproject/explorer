@@ -12,113 +12,63 @@
       </div>
       <div v-else>
         <b-list-group class="px-3 px-md-5">
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Transactions</div>
-              <div class="d-block text-truncate">
-                {{ $n(transactionCount) }}
-              </div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Confirmations</div>
-              <div class="d-block text-truncate">{{ $n(confirmations) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Height</div>
-              <div class="d-block text-truncate">{{ $n(height) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Timestamp</div>
-              <div class="d-block text-truncate">{{ $d(timestamp) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Miner</div>
-              <div class="d-block text-truncate">
-                <span v-b-tooltip.hover :title="miner">
-                  <b-link
-                    :to="{
-                      name: 'address-hash',
-                      params: { hash: miner },
-                    }"
-                    >{{ minerDisplay }}
-                  </b-link>
-                </span>
-              </div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Difficulty</div>
-              <div class="d-block text-truncate">{{ $n(difficulty) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Total difficulty</div>
-              <div class="d-block text-truncate">
-                {{ totalDifficultyFormatted }}
-              </div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Size</div>
-              <div class="d-block text-truncate">{{ $n(size) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Gas Used</div>
-              <div class="d-block text-truncate">{{ $n(gasUsed) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Gas Limit</div>
-              <div class="d-block text-truncate">{{ $n(gasLimit) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Extra Data</div>
-              <div class="d-block text-truncate">{{ extraData }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Parent ID</div>
-              <div class="d-block text-truncate">
-                <b-link
-                  :to="{
-                    name: 'block-hash',
-                    params: { hash: parentHash },
-                  }"
-                >
-                  {{ parentHash }}
-                </b-link>
-              </div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Sha3Uncles</div>
-              <div class="d-block text-truncate">{{ sha3Uncles }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Nonce</div>
-              <div class="d-block text-truncate">{{ nonce }}</div>
-            </div>
-          </b-list-group-item>
+          <title-value-list-group-item title="Transactions">
+            {{ $n(transactionCount) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Confirmations">
+            {{ $n(confirmations) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Height">
+            {{ $n(height) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Timestamp">
+            {{ $d(timestamp) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Miner">
+            <span v-b-tooltip.hover :title="miner">
+              <b-link
+                :to="{
+                  name: 'address-hash',
+                  params: { hash: miner },
+                }"
+                >{{ minerDisplay }}
+              </b-link>
+            </span>
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Difficulty">
+            {{ $n(difficulty) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Total difficulty">
+            {{ totalDifficultyFormatted }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Size">
+            {{ $n(size) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Gas Used">
+            {{ $n(gasUsed) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Gas Limit">
+            {{ $n(gasLimit) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Extra Data">
+            {{ extraData }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Parent ID">
+            <b-link
+              :to="{
+                name: 'block-hash',
+                params: { hash: parentHash },
+              }"
+            >
+              {{ parentHash }}
+            </b-link>
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Sha3Uncles">
+            {{ sha3Uncles }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Nonce">
+            {{ nonce }}
+          </title-value-list-group-item>
         </b-list-group>
       </div>
     </section>
@@ -138,9 +88,15 @@ import { STAT_MODULE_NAMESPACE, NET_INFO } from '@/store/stat'
 import PageHeader from '@/components/pageHeader'
 import BlockTransactionList from '@/components/blockTransactionList'
 import BlockHeader from '@/components/blockHeader'
+import TitleValueListGroupItem from '@/components/titleValueListGroupItem'
 
 export default {
-  components: { BlockHeader, BlockTransactionList, PageHeader },
+  components: {
+    TitleValueListGroupItem,
+    BlockHeader,
+    BlockTransactionList,
+    PageHeader,
+  },
   async fetch() {
     await this.$store.dispatch(`${BLOCK_MODULE_NAMESPACE}/${FETCH_BLOCK}`, {
       hash: this.$route.params.hash,

@@ -1,19 +1,19 @@
 <template>
-  <section
-    class="bg-dark px-3 px-md-5 py-2 py-4 rounded mb-4 d-flex justify-content-between"
-  >
-    <div class="flex-column">
-      <div class="text-muted">Address</div>
-      <div class="font-weight-bold text-light">
-        {{ hash }}
-      </div>
-    </div>
-    <div class="flex-column text-right">
-      <div class="text-muted">Balance (ELLA)</div>
-      <div class="font-weight-bold text-light">
-        <balance-currency-tooltip :balance="balance" />
-      </div>
-    </div>
+  <section class="bg-dark px-3 px-md-5 py-2 py-4 mb-4 rounded">
+    <b-row cols="1" cols-md="2">
+      <b-col>
+        <div class="text-muted">Address</div>
+        <div class="font-weight-bold text-light text-truncate">
+          {{ hash }}
+        </div>
+      </b-col>
+      <b-col class="text-md-right mt-2 mt-md-0">
+        <div class="text-muted">Balance (ELLA)</div>
+        <div class="font-weight-bold text-light">
+          <balance-currency-tooltip :balance="balance" />
+        </div>
+      </b-col>
+    </b-row>
   </section>
 </template>
 

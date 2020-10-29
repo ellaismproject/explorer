@@ -12,44 +12,28 @@
       </div>
       <div v-else>
         <b-list-group class="px-3 px-md-5">
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Name</div>
-              <div class="d-block text-truncate">{{ name }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Website</div>
-              <div class="d-block text-truncate">
-                <a :href="website" target="_blank" rel="nofollow">{{
-                  website
-                }}</a>
-              </div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Blocks Mined</div>
-              <div class="d-block text-truncate">{{ $n(blocksMined) }}</div>
-            </div>
-          </b-list-group-item>
-          <b-list-group-item class="flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="mr-4 text-nowrap">Tags</div>
-              <div>
-                <b-badge
-                  v-for="tag in tags"
-                  :key="tag"
-                  pill
-                  variant="primary"
-                  class="ml-2"
-                >
-                  {{ tag }}
-                </b-badge>
-              </div>
-            </div>
-          </b-list-group-item>
+          <title-value-list-group-item title="Name">
+            {{ name }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Website">
+            <b-link :href="website" target="_blank" rel="nofollow">
+              {{ website }}
+            </b-link>
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Blocks Mined">
+            {{ $n(blocksMined) }}
+          </title-value-list-group-item>
+          <title-value-list-group-item title="Tags">
+            <b-badge
+              v-for="tag in tags"
+              :key="tag"
+              pill
+              variant="primary"
+              class="ml-2"
+            >
+              {{ tag }}
+            </b-badge>
+          </title-value-list-group-item>
         </b-list-group>
       </div>
     </section>
@@ -82,9 +66,11 @@ import { NET_INFO, STAT_MODULE_NAMESPACE } from '@/store/stat'
 import { mapState } from 'vuex'
 import AddressTransactionList from '@/components/addressTransactionList'
 import AddressHeader from '@/components/addressHeader'
+import TitleValueListGroupItem from '@/components/titleValueListGroupItem'
 
 export default {
   components: {
+    TitleValueListGroupItem,
     AddressHeader,
     AddressTransactionList,
     PageHeader,

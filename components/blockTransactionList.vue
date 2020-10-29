@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <transaction-list-table :items="items" loader :is-loading="isLoading" />
-  </div>
+  <transaction-list-table :items="items" loader :is-loading="isLoading" />
 </template>
 
 <script>

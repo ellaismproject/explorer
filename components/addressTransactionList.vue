@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <transaction-list-table
-      :items="items"
-      loader
-      :is-loading="isLoading"
-      :paginated="paginated"
-      :pagination="pagination"
-      route-name="address-hash-transaction-page"
-      :route-params="routeParams"
-    />
-  </div>
+  <transaction-list-table
+    :items="items"
+    loader
+    :is-loading="isLoading"
+    :paginated="paginated"
+    :pagination="pagination"
+    route-name="address-hash-transaction-page"
+    :route-params="routeParams"
+  />
 </template>
 
 <script>

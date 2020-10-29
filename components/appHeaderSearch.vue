@@ -1,26 +1,24 @@
 <template>
-  <div>
-    <b-nav-form @submit="onSearch">
-      <b-form-input
-        v-model="term"
-        size="sm"
-        class="mr-sm-2"
-        :placeholder="$t('navigation.search.placeholder')"
-      />
-      <b-overlay
-        :show="isBusy"
-        rounded
-        opacity="0.6"
-        spinner-small
-        spinner-variant="primary"
-        class="d-inline-block"
-      >
-        <b-button size="sm" class="my-2 my-sm-0" type="submit" variant="light">
-          {{ $t('navigation.search.button') }}
-        </b-button>
-      </b-overlay>
-    </b-nav-form>
-  </div>
+  <b-nav-form @submit="onSearch">
+    <b-form-input
+      v-model="term"
+      size="sm"
+      class="mr-sm-2"
+      :placeholder="$t('navigation.search.placeholder')"
+    />
+    <b-overlay
+      :show="isBusy"
+      rounded
+      opacity="0.6"
+      spinner-small
+      spinner-variant="primary"
+      class="d-inline-block"
+    >
+      <b-button size="sm" class="my-2 my-sm-0" type="submit" variant="light">
+        {{ $t('navigation.search.button') }}
+      </b-button>
+    </b-overlay>
+  </b-nav-form>
 </template>
 
 <script>

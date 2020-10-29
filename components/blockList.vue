@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <block-list-table
-      :items="items"
-      :paginated="paginated"
-      loader
-      :is-loading="isLoading"
-    />
-  </div>
+  <block-list-table
+    :items="items"
+    :paginated="paginated"
+    loader
+    :is-loading="isLoading"
+  />
 </template>
 
 <script>
