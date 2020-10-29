@@ -26,7 +26,7 @@
               {{ $t('navigation.resources_subnav.website') }}
             </b-dropdown-item>
             <b-dropdown-item
-              href="https://github.com/ellaism"
+              href="https://github.com/ellaismproject"
               rel="nofollow"
               target="_blank"
             >
