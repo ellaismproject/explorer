@@ -22,7 +22,7 @@
             {{ $n(height) }}
           </title-value-list-group-item>
           <title-value-list-group-item title="Timestamp">
-            {{ $d(timestamp) }}
+            {{ $d(timestamp, 'long') }}
           </title-value-list-group-item>
           <title-value-list-group-item title="Miner">
             <span v-b-tooltip.hover :title="miner">
