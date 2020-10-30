@@ -23,6 +23,7 @@
           </b-nav-item>
           <b-nav-item-dropdown :text="$t('navigation.resources')">
             <b-dropdown-item href="https://ellaism.io">
+              <font-awesome-icon :icon="['fas', 'globe']" class="mr-1" />
               {{ $t('navigation.resources_subnav.website') }}
             </b-dropdown-item>
             <b-dropdown-item
@@ -30,11 +31,13 @@
               rel="nofollow"
               target="_blank"
             >
+              <font-awesome-icon :icon="['fab', 'github']" class="mr-1" />
               {{ $t('navigation.resources_subnav.github') }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item-dropdown :text="$t('navigation.social')" rel="nofollow">
             <b-dropdown-item href="https://discord.gg/rndbuSz" target="_blank">
+              <font-awesome-icon :icon="['fab', 'discord']" class="mr-1" />
               {{ $t('navigation.social_subnav.discord') }}
             </b-dropdown-item>
             <b-dropdown-item
@@ -42,6 +45,7 @@
               rel="nofollow"
               target="_blank"
             >
+              <font-awesome-icon :icon="['fab', 'telegram']" class="mr-1" />
               {{ $t('navigation.social_subnav.telegram') }}
             </b-dropdown-item>
             <b-dropdown-item
@@ -49,6 +53,7 @@
               rel="nofollow"
               target="_blank"
             >
+              <font-awesome-icon :icon="['fab', 'reddit']" class="mr-1" />
               {{ $t('navigation.social_subnav.reddit') }}
             </b-dropdown-item>
             <b-dropdown-item
@@ -56,6 +61,7 @@
               rel="nofollow"
               target="_blank"
             >
+              <font-awesome-icon :icon="['fab', 'twitter']" class="mr-1" />
               {{ $t('navigation.social_subnav.twitter') }}
             </b-dropdown-item>
           </b-nav-item-dropdown>

@@ -34,7 +34,10 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/scss/app.scss'],
+  css: [
+    '~/assets/scss/app.scss',
+    '@fortawesome/fontawesome-svg-core/styles.css',
+  ],
   /*
    ** BootstrapVue
    ** See https://bootstrap-vue.org/docs#nuxtjs-module
@@ -47,7 +50,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['~/plugins/fontawesome.js'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
