@@ -66,9 +66,7 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
-        <b-navbar-nav class="ml-auto">
-          <app-header-search />
-        </b-navbar-nav>
+        <app-header-search />
       </b-collapse>
     </b-navbar>
   </header>
@@ -84,7 +82,7 @@ export default {
 <style lang="scss" scoped>
 @import 'assets/scss/variables';
 
-header /deep/ .navbar {
+/deep/ .navbar {
   background-color: $primary;
   margin-bottom: 1.875rem;
 }

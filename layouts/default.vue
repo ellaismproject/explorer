@@ -56,7 +56,6 @@ export default {
 <style lang="scss" scoped>
 main {
   padding-top: 1.875rem;
-  background-color: #f5f6fa;
   min-height: 100vh;
 }
 </style>

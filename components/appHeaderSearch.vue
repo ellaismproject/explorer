@@ -1,24 +1,26 @@
 <template>
-  <b-nav-form @submit="onSearch">
-    <b-form-input
-      v-model="term"
-      size="sm"
-      class="mr-sm-2"
-      :placeholder="$t('navigation.search.placeholder')"
-    />
-    <b-overlay
-      :show="isBusy"
-      rounded
-      opacity="0.6"
-      spinner-small
-      spinner-variant="primary"
-      class="d-inline-block"
-    >
-      <b-button size="sm" class="my-2 my-sm-0" type="submit" variant="light">
-        {{ $t('navigation.search.button') }}
-      </b-button>
-    </b-overlay>
-  </b-nav-form>
+  <b-navbar-nav class="ml-auto rounded">
+    <b-nav-form @submit="onSearch">
+      <b-form-input
+        v-model="term"
+        size="sm"
+        class="border-0 not-rounded"
+        :placeholder="$t('navigation.search.placeholder')"
+      />
+      <b-overlay
+        :show="isBusy"
+        rounded
+        opacity="0.6"
+        spinner-small
+        spinner-variant="primary"
+        class="d-inline-block"
+      >
+        <b-button size="sm" type="submit" variant="light" class="not-rounded">
+          <font-awesome-icon :icon="['fas', 'search']" />
+        </b-button>
+      </b-overlay>
+    </b-nav-form>
+  </b-navbar-nav>
 </template>
 
 <script>
@@ -89,10 +91,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'assets/scss/variables';
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints';
 
-header /deep/ .navbar {
-  background-color: $primary;
-  margin-bottom: 1.875rem;
+.navbar-nav {
+  background-color: #fff;
+}
+
+@include media-breakpoint-up(md) {
+  .navbar-nav input {
+    width: 350px;
+  }
 }
 </style>

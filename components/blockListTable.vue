@@ -186,7 +186,6 @@ export default {
 
 <style lang="scss" scoped>
 .block-list-table /deep/ .b-table-busy-slot {
-  background-color: #ffffff;
   padding: 1.5rem;
 }
 </style>
