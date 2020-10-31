@@ -20,7 +20,10 @@
         </li>
       </ul>
       <small
-        ><a href="https://www.coingecko.com/" target="_blank" rel="nofollow"
+        ><a
+          href="https://www.coingecko.com/"
+          target="_blank"
+          rel="noopener noreferrer"
           ><i18n path="footer.price_statement" /></a
       ></small>
     </div>

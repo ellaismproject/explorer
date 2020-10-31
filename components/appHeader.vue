@@ -28,21 +28,25 @@
             </b-dropdown-item>
             <b-dropdown-item
               href="https://github.com/ellaismproject/ellaism"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <font-awesome-icon :icon="['fab', 'github']" class="mr-1" />
               {{ $t('navigation.resources_subnav.github') }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item-dropdown :text="$t('navigation.social')" rel="nofollow">
-            <b-dropdown-item href="https://discord.gg/rndbuSz" target="_blank">
+          <b-nav-item-dropdown :text="$t('navigation.social')">
+            <b-dropdown-item
+              href="https://discord.gg/rndbuSz"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
               <font-awesome-icon :icon="['fab', 'discord']" class="mr-1" />
               {{ $t('navigation.social_subnav.discord') }}
             </b-dropdown-item>
             <b-dropdown-item
               href="https://t.me/ellaismproject"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <font-awesome-icon :icon="['fab', 'telegram']" class="mr-1" />
@@ -50,7 +54,7 @@
             </b-dropdown-item>
             <b-dropdown-item
               href="https://www.reddit.com/r/ellaism/"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <font-awesome-icon :icon="['fab', 'reddit']" class="mr-1" />
@@ -58,7 +62,7 @@
             </b-dropdown-item>
             <b-dropdown-item
               href="https://twitter.com/ellacommunity"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <font-awesome-icon :icon="['fab', 'twitter']" class="mr-1" />

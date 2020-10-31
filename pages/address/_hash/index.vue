@@ -16,7 +16,11 @@
             {{ name }}
           </title-value-list-group-item>
           <title-value-list-group-item title="Website">
-            <b-link :href="website" target="_blank" rel="nofollow">
+            <b-link
+              :href="website"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
               {{ website }}
             </b-link>
           </title-value-list-group-item>
