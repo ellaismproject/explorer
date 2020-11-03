@@ -42,7 +42,7 @@
             {{ totalDifficultyFormatted }}
           </title-value-list-group-item>
           <title-value-list-group-item title="Size">
-            {{ $n(size) }}
+            {{ $n(size) }} bytes
           </title-value-list-group-item>
           <title-value-list-group-item title="Gas Used">
             {{ $n(gasUsed) }}
