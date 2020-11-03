@@ -18,6 +18,17 @@ import AppFooter from '~/components/appFooter'
 
 export default {
   components: { AppHeader, AppFooter },
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'generator',
+          name: 'generator',
+          content: `${process.env.npm_package_name} ${process.env.version}`,
+        },
+      ],
+    }
+  },
   async fetch() {
     await this.$store.dispatch(`${STAT_MODULE_NAMESPACE}/${FETCH_NET_INFO}`)
     await this.$store.dispatch(`${STAT_MODULE_NAMESPACE}/${FETCH_PRICE}`)
