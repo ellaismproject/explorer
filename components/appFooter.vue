@@ -1,6 +1,6 @@
 <template>
   <footer class="container pt-4 pb-4 text-muted">
-    <div class="p-3 pl-5 pr-5">
+    <div class="p-3 pl-3 pr-3 pl-md-5 pr-md-5 text-center text-md-left">
       <ul class="list-inline m-0">
         <li class="list-inline-item">
           <i18n path="footer.copyright">
@@ -14,9 +14,13 @@
           </i18n>
         </li>
         <li class="list-inline-item">
-          <i18n path="footer.version">
-            <span slot="version">{{ version }}</span>
-          </i18n>
+          <b-link
+            href="https://blocksentinel.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i18n path="footer.hosted_by_statement" />
+          </b-link>
         </li>
       </ul>
       <small
@@ -35,9 +39,6 @@ export default {
   computed: {
     year() {
       return new Date().getFullYear()
-    },
-    version() {
-      return process.env.version
     },
   },
 }

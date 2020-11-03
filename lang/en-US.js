@@ -68,6 +68,7 @@ export default {
   footer: {
     copyright: '{symbol} {year} {name}',
     version: 'v{version}',
+    hosted_by_statement: 'Hosting provided by @:vendor.blocksentinel',
     price_statement: 'Price data provided by @:vendor.coingecko',
     network_status: 'Network Status',
   },
@@ -83,6 +84,7 @@ export default {
     s: '{amount} s',
   },
   vendor: {
+    blocksentinel: 'Block Sentinel',
     coingecko: 'CoinGecko',
   },
 }
