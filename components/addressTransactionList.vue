@@ -32,6 +32,12 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      currentPage: 1,
+      isLoading: false,
+    }
+  },
   async fetch() {
     this.isLoading = true
     await this.$store.dispatch(
@@ -43,12 +49,6 @@ export default {
       }
     )
     this.isLoading = false
-  },
-  data() {
-    return {
-      currentPage: 1,
-      isLoading: false,
-    }
   },
   computed: {
     ...mapState(TRANSACTION_MODULE_NAMESPACE, {

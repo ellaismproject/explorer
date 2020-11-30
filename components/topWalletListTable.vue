@@ -14,7 +14,7 @@
       hover
       responsive
     >
-      <template v-slot:cell(hash)="row">
+      <template #cell(hash)="row">
         <div class="text-truncate">
           <span
             v-b-tooltip.hover
@@ -46,13 +46,13 @@
           </b-badge>
         </div>
       </template>
-      <template v-slot:cell(balance)="row">
+      <template #cell(balance)="row">
         <balance-currency-tooltip :balance="row.item.balance" />
       </template>
-      <template v-slot:cell(percent)="row">
+      <template #cell(percent)="row">
         {{ `${$n(row.item.percent)}%` }}
       </template>
-      <template v-slot:table-busy>
+      <template #table-busy>
         <b-spinner class="d-block m-auto" type="grow" variant="primary" />
       </template>
     </b-table>

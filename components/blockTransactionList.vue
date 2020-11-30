@@ -18,6 +18,12 @@ export default {
     type: { type: String, required: true },
     loader: { type: Boolean, default: false },
   },
+  data() {
+    return {
+      currentPage: 1,
+      isLoading: false,
+    }
+  },
   async fetch() {
     this.isLoading = true
     await this.$store.dispatch(
@@ -25,12 +31,6 @@ export default {
       { hash: this.$props.hash, type: this.$props.type }
     )
     this.isLoading = false
-  },
-  data() {
-    return {
-      currentPage: 1,
-      isLoading: false,
-    }
   },
   computed: {
     ...mapState(TRANSACTION_MODULE_NAMESPACE, {

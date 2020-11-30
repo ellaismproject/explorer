@@ -63,12 +63,6 @@ export default {
     '@nuxtjs/moment',
   ],
   /*
-   ** ESLint
-   */
-  eslint: {
-    fix: true,
-  },
-  /*
    ** Google Analytics
    */
   googleAnalytics: {

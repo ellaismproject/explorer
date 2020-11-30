@@ -14,7 +14,7 @@
       hover
       responsive
     >
-      <template v-slot:cell(hash)="row">
+      <template #cell(hash)="row">
         <span v-b-tooltip.hover :title="row.item.hash">
           <b-link
             :to="
@@ -27,13 +27,13 @@
           >
         </span>
       </template>
-      <template v-slot:cell(blockNumber)="row">
+      <template #cell(blockNumber)="row">
         <i18n-n :value="parseInt(row.item.blockNumber)" />
       </template>
-      <template v-slot:cell(timestamp)="row">
+      <template #cell(timestamp)="row">
         {{ $d($moment.unix(row.item.timestamp).toDate(), 'long') }}
       </template>
-      <template v-slot:cell(minerDisplay)="row">
+      <template #cell(minerDisplay)="row">
         <span v-b-tooltip.hover :title="row.item.miner">
           <b-link
             :to="{
@@ -44,13 +44,13 @@
           >
         </span>
       </template>
-      <template v-slot:cell(value)="row">
+      <template #cell(value)="row">
         <balance-currency-tooltip :balance="row.item.value" />
       </template>
-      <template v-slot:cell(fees)="row">
+      <template #cell(fees)="row">
         <balance-currency-tooltip :balance="row.item.fees" />
       </template>
-      <template v-slot:table-busy>
+      <template #table-busy>
         <b-spinner class="d-block m-auto" type="grow" variant="primary" />
       </template>
     </b-table>

@@ -18,15 +18,15 @@ import AppFooter from '~/components/appFooter'
 
 export default {
   components: { AppHeader, AppFooter },
-  async fetch() {
-    await this.$store.dispatch(`${STAT_MODULE_NAMESPACE}/${FETCH_NET_INFO}`)
-    await this.$store.dispatch(`${STAT_MODULE_NAMESPACE}/${FETCH_PRICE}`)
-  },
   data() {
     return {
       fetchNetInfoTask: null,
       fetchPriceTask: null,
     }
+  },
+  async fetch() {
+    await this.$store.dispatch(`${STAT_MODULE_NAMESPACE}/${FETCH_NET_INFO}`)
+    await this.$store.dispatch(`${STAT_MODULE_NAMESPACE}/${FETCH_PRICE}`)
   },
   mounted() {
     this.fetchNetInfoTask = setInterval(() => {

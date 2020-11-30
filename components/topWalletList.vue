@@ -23,6 +23,12 @@ export default {
     paginated: { type: Boolean, default: false },
     loader: { type: Boolean, default: false },
   },
+  data() {
+    return {
+      currentPage: 1,
+      isLoading: false,
+    }
+  },
   async fetch() {
     this.isLoading = true
     await this.$store.dispatch(
@@ -30,12 +36,6 @@ export default {
       { page: this.$props.page }
     )
     this.isLoading = false
-  },
-  data() {
-    return {
-      currentPage: 1,
-      isLoading: false,
-    }
   },
   computed: {
     ...mapState(STAT_MODULE_NAMESPACE, {

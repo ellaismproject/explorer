@@ -14,7 +14,7 @@
       hover
       responsive
     >
-      <template v-slot:cell(hash)="row">
+      <template #cell(hash)="row">
         <span v-b-tooltip.hover :title="row.item.hash">
           <b-link
             :to="
@@ -27,11 +27,11 @@
           >
         </span>
       </template>
-      <template v-slot:cell(timestamp)="row">
+      <template #cell(timestamp)="row">
         {{ $d($moment.unix(row.item.timestamp).toDate(), 'long') }}
       </template>
 
-      <template v-slot:cell(addressFrom)="row">
+      <template #cell(addressFrom)="row">
         <span v-b-tooltip.hover :title="row.item.addressFrom">
           <b-link
             :to="
@@ -44,7 +44,7 @@
           >
         </span>
       </template>
-      <template v-slot:cell(addressTo)="row">
+      <template #cell(addressTo)="row">
         <span v-b-tooltip.hover :title="row.item.addressTo">
           <b-link
             :to="
@@ -57,10 +57,10 @@
           >
         </span>
       </template>
-      <template v-slot:cell(value)="row">
+      <template #cell(value)="row">
         <balance-currency-tooltip :balance="row.item.value" />
       </template>
-      <template v-slot:table-busy>
+      <template #table-busy>
         <b-spinner class="d-block m-auto" type="grow" variant="primary" />
       </template>
     </b-table>

@@ -25,6 +25,13 @@ export default {
     refresh: { type: Boolean, default: false },
     refreshInterval: { type: Number, default: 15000 },
   },
+  data() {
+    return {
+      currentPage: 1,
+      isLoading: false,
+      fetchBlockTask: null,
+    }
+  },
   async fetch() {
     this.isLoading = true
     await this.$store.dispatch(
@@ -32,13 +39,6 @@ export default {
       { page: this.$props.page }
     )
     this.isLoading = false
-  },
-  data() {
-    return {
-      currentPage: 1,
-      isLoading: false,
-      fetchBlockTask: null,
-    }
   },
   computed: {
     ...mapState(BLOCK_MODULE_NAMESPACE, {
