@@ -1,4 +1,4 @@
-FROM node:15.15-alpine as base
+FROM node:14.15-alpine as base
 WORKDIR /app
 ENV NUXT_HOST 0.0.0.0
 ENV NUXT_PORT 3000
