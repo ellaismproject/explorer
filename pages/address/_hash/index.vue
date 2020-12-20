@@ -38,6 +38,12 @@
               {{ tag }}
             </b-badge>
           </title-value-list-group-item>
+          <title-value-list-group-item v-if="ad" title="Sponsored">
+            <b-link :href="ad.url" target="_blank" rel="noopener nofollow">
+              {{ ad.display }}
+              <font-awesome-icon :icon="['fas', 'ad']" />
+            </b-link>
+          </title-value-list-group-item>
         </b-list-group>
       </div>
     </section>
@@ -91,6 +97,11 @@ export default {
     ...mapState(STAT_MODULE_NAMESPACE, {
       netInfo: NET_INFO,
     }),
+    ad() {
+      return this.netInfo.promotions?.find((p) => {
+        return p.location === 'address'
+      })
+    },
     hash() {
       return this.address.hash
     },

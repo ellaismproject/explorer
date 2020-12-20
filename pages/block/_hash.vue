@@ -69,6 +69,12 @@
           <title-value-list-group-item title="Nonce">
             {{ nonce }}
           </title-value-list-group-item>
+          <title-value-list-group-item v-if="ad" title="Sponsored">
+            <b-link :href="ad.url" target="_blank" rel="noopener nofollow">
+              {{ ad.display }}
+              <font-awesome-icon :icon="['fas', 'ad']" />
+            </b-link>
+          </title-value-list-group-item>
         </b-list-group>
       </div>
     </section>
@@ -109,6 +115,11 @@ export default {
     ...mapState(STAT_MODULE_NAMESPACE, {
       netInfo: NET_INFO,
     }),
+    ad() {
+      return this.netInfo.promotions?.find((p) => {
+        return p.location === 'block'
+      })
+    },
     hash() {
       return this.block.hash
     },

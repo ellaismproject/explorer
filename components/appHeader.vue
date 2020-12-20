@@ -34,8 +34,7 @@
               <font-awesome-icon :icon="['fab', 'github']" class="mr-1" />
               {{ $t('navigation.resources_subnav.github') }}
             </b-dropdown-item>
-          </b-nav-item-dropdown>
-          <b-nav-item-dropdown :text="$t('navigation.social')">
+            <div class="dropdown-divider"></div>
             <b-dropdown-item
               href="https://discord.gg/rndbuSz"
               target="_blank"
@@ -69,6 +68,15 @@
               {{ $t('navigation.social_subnav.twitter') }}
             </b-dropdown-item>
           </b-nav-item-dropdown>
+          <b-nav-item
+            v-if="ad"
+            :href="ad.url"
+            rel="noopener nofollow"
+            target="_blank"
+          >
+            {{ ad.display }}
+            <font-awesome-icon :icon="['fas', 'ad']" />
+          </b-nav-item>
         </b-navbar-nav>
         <app-header-search />
       </b-collapse>
@@ -78,8 +86,21 @@
 
 <script>
 import AppHeaderSearch from '@/components/appHeaderSearch'
+import { NET_INFO, STAT_MODULE_NAMESPACE } from '@/store/stat'
+import { mapState } from 'vuex'
+
 export default {
   components: { AppHeaderSearch },
+  computed: {
+    ...mapState(STAT_MODULE_NAMESPACE, {
+      netInfo: NET_INFO,
+    }),
+    ad() {
+      return this.netInfo.promotions?.find((p) => {
+        return p.location === 'navbar'
+      })
+    },
+  },
 }
 </script>
 
