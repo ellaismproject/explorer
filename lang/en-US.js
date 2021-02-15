@@ -50,6 +50,7 @@ export default {
     resources: 'Resources',
     resources_subnav: {
       website: '@:ellaism Website',
+      forum: '@:ellaism Forum',
       network_status: 'Network Status',
       github: '@:ellaism GitHub',
     },

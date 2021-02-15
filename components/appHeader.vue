@@ -26,6 +26,10 @@
               <font-awesome-icon :icon="['fas', 'globe']" class="mr-1" />
               {{ $t('navigation.resources_subnav.website') }}
             </b-dropdown-item>
+            <b-dropdown-item href="https://forum.ellaism.io">
+              <font-awesome-icon :icon="['fas', 'users']" class="mr-1" />
+              {{ $t('navigation.resources_subnav.forum') }}
+            </b-dropdown-item>
             <b-dropdown-item
               href="https://github.com/ellaismproject/ellaism"
               rel="noopener noreferrer nofollow"
