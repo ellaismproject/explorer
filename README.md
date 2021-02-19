@@ -1,9 +1,8 @@
 # Ellaism Explorer
 
-> A blockchain explorer for Ellaism using NuxtJS and BootstrapVue.
+> A blockchain explorer for Ellaism.
 
 ![GitHub](https://img.shields.io/github/license/majordutch/cinder-ui)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 You can access it at [https://explorer.ellaism.io](https://explorer.ellaism.io).
 
@@ -37,5 +36,5 @@ review the [guidelines for contributing](CONTRIBUTING.md).
 
 ## License
 
-This project is released under the terms of the MIT license. See [LICENSE](LICENSE) 
-for more information or see https://opensource.org/licenses/MIT.
+This project is released under the terms of the Apache License, Version 2.0. See [LICENSE](LICENSE)
+for more information or see https://opensource.org/licenses/Apache-2.0.
