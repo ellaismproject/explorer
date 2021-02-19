@@ -15,6 +15,11 @@
       responsive
     >
       <template #cell(hash)="row">
+        <font-awesome-icon
+          v-show="row.item.failed"
+          :icon="['fas', 'exclamation-circle']"
+          class="text-danger"
+        />
         <span v-b-tooltip.hover :title="row.item.hash">
           <b-link
             :to="

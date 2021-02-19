@@ -22,6 +22,10 @@
         >{{ recipient }}</b-link
       >
     </title-value-list-group-item>
+    <title-value-list-group-item title="Status">
+      <span v-if="status">Failed</span>
+      <span v-else>Success</span>
+    </title-value-list-group-item>
     <title-value-list-group-item title="Confirmations">
       {{ confirmations }}
     </title-value-list-group-item>
@@ -93,6 +97,9 @@ export default {
     },
     recipient() {
       return this.transaction.addressTo
+    },
+    status() {
+      return this.transaction.failed
     },
     timestamp() {
       return this.$d(
