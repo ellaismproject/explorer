@@ -71,6 +71,15 @@
               <font-awesome-icon :icon="['fab', 'twitter']" class="mr-1" />
               {{ $t('navigation.social_subnav.twitter') }}
             </b-dropdown-item>
+            <div class="dropdown-divider"></div>
+            <b-dropdown-item
+              href="https://blocksentinel.dev"
+              rel="noopener"
+              target="_blank"
+            >
+              <font-awesome-icon :icon="['fas', 'server']" class="mr-1" />
+              {{ $t('vendor.blocksentinel') }}
+            </b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item
             v-if="ad"

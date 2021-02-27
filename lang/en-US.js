@@ -67,11 +67,8 @@ export default {
     },
   },
   footer: {
-    copyright: '{symbol} {year} {name}',
-    version: 'v{version}',
-    hosted_by_statement: 'Hosting provided by @:vendor.blocksentinel',
+    copyright: '{symbol} {year} {name} Contributors',
     price_statement: 'Price data provided by @:vendor.coingecko',
-    network_status: 'Network Status',
   },
   stats: {
     blockHeight: 'Block Height:',
