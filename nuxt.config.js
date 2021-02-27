@@ -160,7 +160,13 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    hotMiddleware: {
+      client: {
+        overlay: false,
+      },
+    },
+  },
   /*
    ** Runtime Config
    ** See https://nuxtjs.org/guide/runtime-config#runtime-config-213
